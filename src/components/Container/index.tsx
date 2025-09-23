@@ -10,10 +10,12 @@ import {
 import type { ContainerTypes } from './types';
 import Alert from '../Alert';
 import BottomSheet from '../BottomSheet';
-import styles from './styles';
 import HeadeMenu from '../HeaderMenu';
+import { useTheme } from '../ThemeProvider';
 
-const Container: React.FC<ContainerTypes> = (props) => (
+const Container: React.FC<ContainerTypes> = (props) => {
+	const theme = useTheme();
+	return (
   <>
     {props.modal}
     {props.header ? (
@@ -34,10 +36,12 @@ const Container: React.FC<ContainerTypes> = (props) => (
       />
     )}
 
-    <View style={[styles.container]}>
+    <View style={[
+			{ flex: 1, backgroundColor: theme.backgroundColor}, props.style,
+		]}>
       {(props.statusbarStyle || props.statusbarBackground) && (
         <StatusBar
-          backgroundColor={props.statusbarBackground || 'red'}
+          backgroundColor={props.statusbarBackground }
           barStyle={
             props.statusbarStyle === 'light' ? 'light-content' : 'dark-content'
           }
@@ -68,5 +72,6 @@ const Container: React.FC<ContainerTypes> = (props) => (
     ) : null}
   </>
 );
+};
 
 export default Container;

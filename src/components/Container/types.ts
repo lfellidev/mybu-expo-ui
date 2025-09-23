@@ -44,4 +44,5 @@ export type ContainerTypes = {
 	viewStyle?: StyleProp<ViewStyle>;
 	text?: string;
 	bottomSheet?: BottomSheetProps;
+	style?: StyleProp<ViewStyle>;
 };

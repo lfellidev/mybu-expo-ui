@@ -30,7 +30,7 @@ export const defaultTheme = {
 		},
 	},
 
-	background: colors.safari.snow,
+	backgroundColor: colors.safari.snow,
 
 	bottomSheet: {
 		closeColor: colors.safari.hare,
