@@ -36,8 +36,7 @@ export type ContainerTypes = {
 	modal?: ReactNode;
 	header?: HeaderProps;
 	alert?: AlertProps;
-	statusbarStyle?: "light" | "dark";
-	statusbarBackground?: string;
+	statusbar?: boolean;
 	scrollable?: boolean;
 	paddingTop?: number;
 	paddingBottom?: number;

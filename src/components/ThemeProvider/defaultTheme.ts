@@ -234,6 +234,11 @@ export const defaultTheme = {
 			fontSize: setFontScale(16),
 		}
 	},
+		statusbar: {
+			barStyle:"light-content",
+			backgroundColor:colors.safari.macaw,
+			hidden:false,
+	},
 
 	switch: {
 		trackColorTrue: colors.safari.macaw,

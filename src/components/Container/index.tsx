@@ -39,15 +39,13 @@ const Container: React.FC<ContainerTypes> = (props) => {
     <View style={[
 			{ flex: 1, backgroundColor: theme.backgroundColor}, props.style,
 		]}>
-      {(props.statusbarStyle || props.statusbarBackground) && (
-        <StatusBar
-          backgroundColor={props.statusbarBackground }
-          barStyle={
-            props.statusbarStyle === 'light' ? 'light-content' : 'dark-content'
-          }
-        />
-      )}
-
+			{
+			props.statusbar?
+			<StatusBar
+        barStyle={theme.statusbar.barStyle as 'default' | 'light-content' | 'dark-content' | undefined}
+				backgroundColor={theme.statusbar.backgroundColor}
+			/>: null
+			}
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         style={{ flex: 1 }}

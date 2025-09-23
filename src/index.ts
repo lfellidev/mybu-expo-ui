@@ -9,6 +9,7 @@ export {default as Group} from "./components/Group";
 export {default as HeaderMenu} from "./components/HeaderMenu";
 export {default as Icon} from "./components/Icon";
 export {default as InputSpinner} from "./components/InputSpinner";
+export {default as Logo} from "./components/Logo";
 export {default as Select} from "./components/Select";
 export {default as Switch} from "./components/Switch";
 export {default as Text} from "./components/Text";

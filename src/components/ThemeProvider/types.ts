@@ -1,6 +1,5 @@
-import { defaultTheme } from './defaultTheme';
 
 export type ThemeProviderTypes = {
-	theme?: typeof defaultTheme;
+	theme?: object
 	children?: React.ReactNode;
 }

@@ -14,6 +14,5 @@ export type ButtonTypes  ={
 	loading?: boolean;
 	delay?: number;
 	disabled?: boolean;
-	theme?: "raised" | "pill"
 }
 
