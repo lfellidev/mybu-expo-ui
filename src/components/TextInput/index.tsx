@@ -37,8 +37,17 @@ const TextInputComponent: React.FC<TextInputTypes> = (
 		},
 	];
 
+	
+
+
 	return (
 		<View style={[styles.container, props.containerStyle]}>
+			<View
+				style={{
+					height:theme.input.labelSize + 4
+				}}
+			
+			>
 			{props.showLabel && value && value.length > 0 ? (
 				<Text 
 				style={[
@@ -46,11 +55,13 @@ const TextInputComponent: React.FC<TextInputTypes> = (
 					{
 						color: theme.input.labelColor,
 						fontSize: theme.input.labelSize,
+			
 					},
 				props.labelStyle]}>
 					{props.label}:{props.required ? "*" : null}
 				</Text>
 			) : null}
+			</View>
 			<View
 				style={[
 					styles.inputGroup,
