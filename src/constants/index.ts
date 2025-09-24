@@ -22,8 +22,13 @@ export const appleRevenueCat: string | undefined = process.env.EXPO_PUBLIC_REVEN
 export const googleRevenueCat: string | undefined = process.env.EXPO_PUBLIC_REVENUECAT_GOOGLE;
 
 
+
 export const appID : string | undefined = process.env.EXPO_PUBLIC_APP_ID;
 export const appToken: string | undefined = process.env.EXPO_PUBLIC_APP_TOKEN;
 export const emailValidation: RegExp = /\S+@\S+\.\S+/;
+
+export const googleStore: string | undefined = process.env.EXPO_PUBLIC_GOOGLE_STORE;
+export const appleStore: string | undefined = process.env.EXPO_PUBLIC_APPLE_STORE;
+
 
 

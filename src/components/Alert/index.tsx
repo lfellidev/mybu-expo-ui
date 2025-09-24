@@ -41,8 +41,8 @@ const Alert: React.FC<AlertTypes> = (props) => {
 				{ 
 					transform: [{ translateY: slideAnim }] ,
         	backgroundColor: 
-					props.type=="danger"? theme.alert.success.backgroundColor :
-					props.type=="success"? theme.alert.danger.backgroundColor :
+					props.type=="danger"? theme.alert.danger.backgroundColor :
+					props.type=="success"? theme.alert.success.backgroundColor :
 					theme.alert.info.backgroundColor,
 					paddingTop: theme.alert.paddingTop,
 					paddingBottom: theme.alert.paddingBottom,
@@ -56,8 +56,8 @@ const Alert: React.FC<AlertTypes> = (props) => {
 					fontWeight: theme.alert.fontWeight?.toString() as any,
 					textAlign: theme.alert.textAlign as "left" | "right" | "center",
 					color: 
-						props.type=="danger"? theme.alert.success.color :
-						props.type=="success"? theme.alert.danger.color :
+						props.type=="danger"? theme.alert.danger.color :
+						props.type=="success"? theme.alert.success.color :
 						theme.alert.info.color,
 				}}
 			>
