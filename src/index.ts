@@ -58,9 +58,13 @@ export {getValue} from "./controllers/remote/customs/getValue";
 export {deleteValue} from "./controllers/remote/customs/deleteValue";
 export {deleteAccount} from "./controllers/remote/deleteAccount";
 
-export {getInfo} from "./controllers/getInfo";
 export {goToStore} from "./controllers/goToStore";
-//Colors
-export {colors} from "./palettes";
 
+
+//Vars
+export {colors} from "./palettes";
+export {applicationData} from "./constants";
+export {constantsData} from "./constants";
+export {deviceData} from "./constants";
+export {appStoreData} from "./constants";
 

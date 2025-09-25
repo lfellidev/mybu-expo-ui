@@ -3,6 +3,7 @@ import {
 	Pressable,
 	ActivityIndicator,
 	Animated,
+	TouchableOpacity
 } from "react-native";
 import type { LayoutChangeEvent } from "react-native";
 import type { ViewStyle } from "react-native";
@@ -60,6 +61,8 @@ const ButtonComponent: React.FC<ButtonTypes> = (props) => {
 
 	const secondaryButtonStyle = {
 		backgroundColor: theme.button.secondary.backgroundColor,
+		borderBottomColor: theme.button.secondary.borderBottomColor,
+		borderBottomWidth: theme.button.secondary.borderBottomWidth,
 	};
 
 	const secondaryTextStyle = {
@@ -123,67 +126,76 @@ const ButtonComponent: React.FC<ButtonTypes> = (props) => {
 			: theme.button.primary.ActivityIndicatorColor;
 	};
 
-	return (
-		<Pressable
-			onLayout={onLayout}
-			onPressIn={handlePressIn}
-			onPress={props.onPress}
-			disabled={props.disabled || countdown > 0 || props.loading}
-			style={[
-				commonButtonStyles,
-				props.type === "secondary"
-					? secondaryButtonStyle
-					: props.type === "tertiary"
-					? tertiaryButtonStyle
-					: props.type === "link"
-					? linkButtonStyle
-					: primaryButtonStyle,
-				props.style,
-			]}
-		>
-			{isRippleEnabled && (
-				<Animated.View
-					pointerEvents="none"
-					style={[
-						{
-							width: rippleSize,
-							height: rippleSize,
-							borderRadius: rippleSize / 2,
-							backgroundColor: getRippleColor(),
-							top: dims.height / 2 - rippleSize / 2,
-							left: dims.width / 2 - rippleSize / 2,
-							opacity: rippleOpacity,
-							transform: [{ scale: rippleScale }],
-							position: "absolute",
-						},
-					]}
-				/>
-			)}
-			{!props.loading ? (
-				<Text
-					style={[
-						{		
+	if (props.type!="link"){
+		return (
+			<Pressable
+				onLayout={onLayout}
+				onPressIn={handlePressIn}
+				onPress={props.onPress}
+				disabled={props.disabled || countdown > 0 || props.loading}
+				style={[
+					commonButtonStyles,
+					props.type === "secondary"
+						? secondaryButtonStyle
+						: props.type === "tertiary"
+						? tertiaryButtonStyle
+						: primaryButtonStyle,
+					props.style,
+				]}
+			>
+				{isRippleEnabled && (
+					<Animated.View
+						pointerEvents="none"
+						style={[
+							{
+								width: rippleSize,
+								height: rippleSize,
+								borderRadius: rippleSize / 2,
+								backgroundColor: getRippleColor(),
+								top: dims.height / 2 - rippleSize / 2,
+								left: dims.width / 2 - rippleSize / 2,
+								opacity: rippleOpacity,
+								transform: [{ scale: rippleScale }],
+								position: "absolute",
+							},
 							
-							textAlign: "center",
-							fontWeight: "bold"
-						 },
-						props.type === "secondary"
-							? secondaryTextStyle
-							: props.type === "tertiary"
-							? tertiaryTextStyle
-							: props.type === "link"
-							? linkTextStyle
-							: primaryTextStyle,
-						props.labelStyle,
-					]}
-				>
-					{props.label} {countdown > 0 ? ` (${countdown})` : null}
-				</Text>
-			) : (
-				<ActivityIndicator color={getLoadingColor()} />
-			)}
-		</Pressable>
-	);
+						]}
+					/>
+				)}
+				{!props.loading ? (
+					<Text
+						style={[
+							{		
+								
+								textAlign: "center",
+								fontWeight: "bold"
+							},
+							props.type === "secondary"
+								? secondaryTextStyle
+								: props.type === "tertiary"
+								? tertiaryTextStyle
+								: primaryTextStyle,
+							props.labelStyle,
+						]}
+					>
+						{props.label} {countdown > 0 ? ` (${countdown})` : null}
+					</Text>
+				) : (
+					<ActivityIndicator color={getLoadingColor()} />
+				)}
+			</Pressable>
+		);
+	} else{
+		return (
+			<TouchableOpacity
+				onPress={props.onPress}
+				disabled={props.disabled}
+				style={[commonButtonStyles, linkButtonStyle, props.style]}
+			>
+				<Text style={[linkTextStyle, props.labelStyle]}>{props.label}</Text>
+			</TouchableOpacity>
+		);
+	}
 };
 
 export default ButtonComponent;

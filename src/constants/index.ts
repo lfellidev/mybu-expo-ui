@@ -1,4 +1,7 @@
-
+import { Platform } from "react-native";
+import * as Application from 'expo-application';
+import * as Device from 'expo-device';
+import  Constants from 'expo-constants';
 
 export const remoteConfigAPI: string=`${process.env.EXPO_PUBLIC_API_DOMAIN}/remoteConfig`;
 export const supportAPI: string=`${process.env.EXPO_PUBLIC_API_DOMAIN}/support`;
@@ -21,14 +24,20 @@ export const customDeleteAPI: string=`${process.env.EXPO_PUBLIC_API_DOMAIN}/cust
 export const appleRevenueCat: string | undefined = process.env.EXPO_PUBLIC_REVENUECAT_APPLE;
 export const googleRevenueCat: string | undefined = process.env.EXPO_PUBLIC_REVENUECAT_GOOGLE;
 
-
-
 export const appID : string | undefined = process.env.EXPO_PUBLIC_APP_ID;
 export const appToken: string | undefined = process.env.EXPO_PUBLIC_APP_TOKEN;
 export const emailValidation: RegExp = /\S+@\S+\.\S+/;
 
 export const googleStore: string | undefined = process.env.EXPO_PUBLIC_GOOGLE_STORE;
 export const appleStore: string | undefined = process.env.EXPO_PUBLIC_APPLE_STORE;
+export const applicationData = Application;
+export const constantsData= Constants;
+export const deviceData= Device;
+export const platformData= Platform;
 
+export const appStoreData= {
+	url: Platform.OS === 'ios' ? appleStore : googleStore,
+	revenuecatID: Platform.OS === 'ios' ? appleRevenueCat : googleRevenueCat
+};
 
 
