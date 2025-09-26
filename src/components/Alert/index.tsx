@@ -47,7 +47,14 @@ const Alert: React.FC<AlertTypes> = (props) => {
 					paddingTop: theme.alert.paddingTop,
 					paddingBottom: theme.alert.paddingBottom,
 					paddingHorizontal: theme.alert.paddingHorizontal,
+					position: 'absolute',
+					top: 0,
+					right: 0,
+					left: 0,
+					zIndex: 999,
+					width: '100%',			
 				},
+				props.style,
       ]}
     >
       <Text 

@@ -29,11 +29,13 @@ const Container: React.FC<ContainerTypes> = (props) => {
     ) : null}
 
     {props.alert && (
-      <Alert
+  
+			<Alert
         type={props.alert.type}
         visible={props.alert.visible}
         text={props.alert.text}
-      />
+			/>
+
     )}
 
     <View style={[
