@@ -29,8 +29,8 @@ const CountdownComponents: React.FC<CountdownTypes> = (props) => {
 		};
 	}, [props.delay]);
 
-	const radius = props.radius || theme.Countdown.radius;
-	const strokeWidth = props.strokeWidth || theme.Countdown.strokeWidth;
+	const radius = props.radius || theme.countdown.radius;
+	const strokeWidth = props.strokeWidth || theme.countdown.strokeWidth;
 	const size = radius * 2 + strokeWidth;
 	const circumference = 2 * Math.PI * radius;
 
@@ -43,7 +43,7 @@ const CountdownComponents: React.FC<CountdownTypes> = (props) => {
 		<View style={styles.container}>
 			<Svg width={size} height={size}>
 				<Circle
-					stroke={theme.Countdown.passedTime}
+					stroke={theme.countdown.passedTime}
 					fill="none"
 					cx={size / 2}
 					cy={size / 2}
@@ -51,7 +51,7 @@ const CountdownComponents: React.FC<CountdownTypes> = (props) => {
 					strokeWidth={strokeWidth}
 				/>
 				<AnimatedCircle
-					stroke={theme.Countdown.remaningTime}
+					stroke={theme.countdown.remaningTime}
 					fill="none"
 					cx={size / 2}
 					cy={size / 2}
@@ -64,7 +64,7 @@ const CountdownComponents: React.FC<CountdownTypes> = (props) => {
 			<Text 
 				style={[
 					styles.text,
-					{fontSize: theme.Countdown.fontSize, color: theme.Countdown.color}, 
+					{fontSize: theme.countdown.fontSize, color: theme.countdown.color}, 
 					props.numberStyle
 					]}
 				>

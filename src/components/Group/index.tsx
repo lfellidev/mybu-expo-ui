@@ -15,10 +15,10 @@ const GroupComponent: React.FC<Props> = (props): React.JSX.Element => {
 	return (
 		<View 
 			style={[{
-				paddingRight: theme.Group.paddingRight,
-				paddingBottom: theme.Group.paddingBottom,
-				paddingLeft: theme.Group.paddingLeft,
-				paddingTop: theme.Group.paddingTop,
+				paddingRight: theme.group.paddingRight,
+				paddingBottom: theme.group.paddingBottom,
+				paddingLeft: theme.group.paddingLeft,
+				paddingTop: theme.group.paddingTop,
 			}, 
 			props.style,
 		]}>

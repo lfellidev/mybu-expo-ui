@@ -130,7 +130,7 @@ export const defaultTheme = {
 		errorBorder: colors.safari.fireAnt,
 	},
 
-	Countdown: {
+	countdown: {
 		remaningTime: colors.safari.macaw,
 		passedTime: colors.safari.siberianHusky,
 		radius: 50,
@@ -148,7 +148,7 @@ export const defaultTheme = {
 		leftPadding: 0,
 	},
 
-	Group: {
+	group: {
 		backgroundColor: "transparent",
 		paddingTop: 0,
 		paddingRight: setPorcentageWidth(5),

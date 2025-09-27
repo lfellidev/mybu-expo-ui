@@ -22,6 +22,7 @@ export {ThemeProvider} from "./components/ThemeProvider";
 export {useTheme} from "./components/ThemeProvider";
 
 //Controllers
+
 export {capitalize} from "./controllers/capitalize";
 export {formatTime} from "./controllers/formatTime";
 export {generateID} from "./controllers/generateID";
@@ -67,4 +68,6 @@ export {applicationData} from "./constants";
 export {constantsData} from "./constants";
 export {deviceData} from "./constants";
 export {appStoreData} from "./constants";
+export {statusbarHeight} from "./constants";
+export {deviceLanguage} from "./constants";
 

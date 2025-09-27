@@ -44,4 +44,5 @@ export type ContainerTypes = {
 	text?: string;
 	bottomSheet?: BottomSheetProps;
 	style?: StyleProp<ViewStyle>;
+	noBackHandler?: boolean;
 };
