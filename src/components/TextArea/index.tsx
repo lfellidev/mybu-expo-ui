@@ -39,7 +39,7 @@ const TextAreaComponent: React.FC<Props> = (props) => {
 	];
 
 	return (
-		<>
+		<View style={[styles.container, props.containerStyle]}>
 			{
 				<Text
 					style={[
@@ -72,7 +72,7 @@ const TextAreaComponent: React.FC<Props> = (props) => {
 							: theme.input.backgroundColor,
 					},
 					props.errorMessage ? errorBorderStyle : null,
-					props.containerStyle,
+					
 					{ height: props.height ||100 }, 
 				]}
 			>
@@ -92,7 +92,7 @@ const TextAreaComponent: React.FC<Props> = (props) => {
 					maxLength={1000}
 				/>
 			</View>
-		</>
+		</View>
 	);
 };
 

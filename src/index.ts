@@ -18,6 +18,7 @@ export {default as TextInput} from "./components/TextInput";
 export {default as Update} from "./components/Update";
 export {ThemeProvider} from "./components/ThemeProvider";
 export {useTheme} from "./components/ThemeProvider";
+export {default as Lottie} from "./components/Lottie";
 
 //Controllers
 
@@ -58,7 +59,8 @@ export {deleteValue} from "./controllers/remote/customs/deleteValue";
 export {deleteAccount} from "./controllers/remote/deleteAccount";
 
 export {goToStore} from "./controllers/goToStore";
-
+export { activateKeepAwakeAsync, deactivateKeepAwake } from 'expo-keep-awake';
+export * as Battery from 'expo-battery';
 
 //Vars
 export {colors} from "./palettes";
@@ -69,3 +71,21 @@ export {appStoreData} from "./constants";
 export {statusbarHeight} from "./constants";
 export {deviceLanguage} from "./constants";
 
+//Sounds
+import beepSound from "./assets/sounds/beep.mp3";
+export { beepSound };
+
+import clickSound from "./assets/sounds/click.mp3";
+export { clickSound };
+
+import purchased from "./assets/sounds/purchased.mp3";
+export { purchased };
+
+import sentSound from "./assets/sounds/sent.mp3";
+export { sentSound };
+
+import tintinSound from "./assets/sounds/tintin.mp3";
+export { tintinSound };
+
+import unlockSound from "./assets/sounds/unlock.mp3";
+export { unlockSound };
