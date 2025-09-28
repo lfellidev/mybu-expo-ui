@@ -5,7 +5,6 @@ import { setPorcentageHeight } from "../../controllers/setPorcentageHeight";
 import { setPorcentageWidth } from "../../controllers/setPorcentageWidth";
 import { setResponsiveSize } from "../../controllers/setResponsiveSize";
 
-
 export const defaultTheme = {
 	alert: {
 		fontSize: setFontScale(14),
@@ -202,6 +201,17 @@ export const defaultTheme = {
 		buttonTextColor: colors.safari.polar,
 		color: colors.safari.eel,
 	},
+
+	ListItems: {
+		backgroundColor: colors.safari.snow, 
+		paddingVertical: setPorcentageHeight(2),
+		paddingHorizontal: setPorcentageHeight(5),
+		color: colors.safari.eel,
+		borderBottomColor: colors.safari.swan,
+		fontSize: setFontScale(16),
+	
+	},
+
 	select: {
 		borderRadius: 10,
 		backgroundColor: colors.safari.swan,
