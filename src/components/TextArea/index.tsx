@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { View, TextInput } from "react-native";
+import { View, TextInput, Text } from "react-native";
 import type { StyleProp, TextStyle, ViewStyle } from "react-native";
 import { useTheme } from "../ThemeProvider";
 import styles from "./styles";
-import Text from "../Text";
+
 
 type Props = {
 	style?: StyleProp<TextStyle>;
@@ -16,7 +16,9 @@ type Props = {
 	showLabel?: boolean;
 	required?: boolean;
 	errorMessage?: boolean;
-	height?: number; 
+	height?: number;
+	placeholder?: string;
+	maxLength?: number;
 };
 
 const TextAreaComponent: React.FC<Props> = (props) => {
@@ -48,38 +50,34 @@ const TextAreaComponent: React.FC<Props> = (props) => {
 							color: theme.input.labelColor,
 							fontSize: theme.input.labelSize,
 						},
-
 						props.labelStyle,
+						isFocused && { color: theme.input.borderColorFocus },
 					]}
 				>
-					{props.showLabel && props.value.length > 0 ? props.label + ":" : null}
+					{props.showLabel ? props.label + ":" : null}
 					{props.required ? "*" : null}
 				</Text>
 			}
 			<View
 				style={[
 					{
-						backgroundColor: theme.input.backgroundColor,
-						borderRadius: theme.input.borderRadius,
-
-						borderColor: isFocused
-							? theme.input.borderColorFocus
-							: theme.input.borderColor,
-					},
-					{
 						backgroundColor: isFocused
 							? theme.input.backgroundColorFocus
 							: theme.input.backgroundColor,
+						borderRadius: theme.input.borderRadius,
+						borderColor: isFocused
+							? theme.input.borderColorFocus
+							: theme.input.borderColor,
+						borderWidth: isFocused ? 2 : 1,
 					},
 					props.errorMessage ? errorBorderStyle : null,
-					
-					{ height: props.height ||100 }, 
+					{ height: props.height || 100 },
 				]}
 			>
 				<TextInput
 					onChangeText={props.onChangeText}
 					value={props.value}
-					placeholder={props.label}
+					placeholder={props.placeholder}
 					editable={!props.disabled}
 					selectionColor="#666"
 					autoCapitalize="none"
@@ -87,9 +85,9 @@ const TextAreaComponent: React.FC<Props> = (props) => {
 					autoCorrect={false}
 					onFocus={handleFocus}
 					onBlur={handleBlur}
-					style={[props.style]}
+					style={[props.style, { padding: 10, textAlignVertical: "top" }]}
 					multiline
-					maxLength={1000}
+					maxLength={props.maxLength ||1000}
 				/>
 			</View>
 		</View>

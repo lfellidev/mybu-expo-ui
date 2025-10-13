@@ -57,39 +57,6 @@ export async function updateEmail(
 			code: "email_updated",
 		};
 	} catch (error: any) {
-		if (error.response?.status === 401) {
-			return {
-				status: 401,
-				message: "Unauthorized",
-				code: "unauthorized",
-			};
-		}
-		if (error.response?.status === 404) {
-			return {
-				status: 400,
-				message: "Email not found",
-				code: "email_not_found",
-			};
-		}
-		if (error.response?.status === 412) {
-			return {
-				status: 400,
-				message: "New email already in use",
-				code: "email_in_use",
-			};
-		} else if (error.response?.status === 423) {
-			return {
-				status: 423,
-				message: "Account is blocked",
-				code: "account_blocked",
-					
-			};
-		} else {
-			return {
-				status: 400,
-				message: error.message,
-				code: "general_error"
-			};
-		}
+	return error.response.data;		
 	}
 }

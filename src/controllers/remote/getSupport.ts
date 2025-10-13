@@ -109,25 +109,6 @@ export async function getSupport(fullName: string, email: string,	message: strin
 			code: "support_request_sent",
 		};
 	} catch (error: any) {
-		if (error.response?.status === 404) {
-			return {
-				status: 400,
-				message: error.message,
-				code: error.message,
-			};
-		}
-		if (error.response?.status === 412) {
-			return {
-				status: 400,
-				message: error.message,
-				code: "Invalid credentials",
-			};
-		} else {
-			return {
-				status: 400,
-				message:error.message,
-				code: "general_error",
-			};
-		}
+	return error.response.data;		
 	}
 }

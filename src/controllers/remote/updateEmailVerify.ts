@@ -58,38 +58,6 @@ export async function updateEmailVerify(
 			code: "email_verified",
 		};
 	} catch (error: any) {
-		if (error.response?.status === 401) {
-			return {
-				status: 401,
-				message: error.message,
-				code: "unauthorized",
-			};
-		}
-		if (error.response?.status === 404) {
-			return {
-				status: 404,
-				message: error.message,
-				code: "email_not_found",
-			};
-		}
-		if (error.response?.status === 412) {
-			return {
-				status: 412,
-				message: error.message,
-				code: "email_in_use",
-			};
-		} else if (error.response?.status === 423) {
-			return {
-				status: 423,
-				message: error.message,
-				code: "account_blocked",
-			};
-		} else {
-			return {
-				status: 400,
-				message: error.message,
-				code: error.message,
-			};
-		}
+	return error.response.data;		
 	}
 }

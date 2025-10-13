@@ -54,36 +54,6 @@ export async function verifyCode(
 			code: "verification_successful",
 		};
 	} catch (error: any) {
-		if (error.response?.status === 401) {
-			return {
-				status: 401,
-				message: error.message,
-				code: "invalid_code",
-			};
-		} else if (error.response?.status === 404) {
-			return {
-				status: 404,
-				message: error.message,
-				code: "email_not_found",
-			};
-		} else if (error.response?.status === 412) {
-			return {
-				status: 412,
-				message: error.message,
-				code: "precondition_failed",
-			};
-		} else if (error.response?.status === 423) {
-			return {
-				status: 423,
-				message: error.message,
-				code: "user_blocked",
-			};
-		} else {
-			return {
-				status: 400,
-				message: error.message,
-				code: "general_error",
-			};
-		}
+return error.response.data;		
 	}
 }

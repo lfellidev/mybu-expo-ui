@@ -167,11 +167,11 @@ export const defaultTheme = {
 
 	input: {
 		color: colors.safari.eel,
-		iconColor: colors.safari.eel,
+		iconColor: "colors.safari.eel",
 		iconBackground: colors.safari.swan,
 		iconSize: setFontScale(14),
-		labelColor: colors.safari.greyWolf,
-		labelSize: setFontScale(14),
+		labelColor: colors.safari.eel,
+		labelSize: setFontScale(16),
 		size: setFontScale(20),
 		backgroundColor: colors.safari.swan,
 		borderColor: colors.safari.swan,
@@ -179,6 +179,14 @@ export const defaultTheme = {
 		borderColorFocus: colors.safari.macaw,
 		borderRadius: 10,
 		errorBorder: colors.safari.fireAnt,
+		paddingTop: setPorcentageHeight(0.5),
+		paddingRight: setPorcentageWidth(2.5),
+		paddingBottom: setPorcentageHeight(0.5),
+		paddingLeft: setPorcentageWidth(0),
+		height: setPorcentageHeight(7),
+
+		width: "100%",
+
 	},
 	inputSpinner: {
 		button: {
@@ -202,7 +210,7 @@ export const defaultTheme = {
 		color: colors.safari.eel,
 	},
 
-	ListItems: {
+	listItems: {
 		backgroundColor: colors.safari.snow, 
 		paddingVertical: setPorcentageHeight(2),
 		paddingHorizontal: setPorcentageHeight(5),
@@ -222,8 +230,7 @@ export const defaultTheme = {
 			marginBottom: setPorcentageHeight(2),
 		},
 		label:{
-			color: colors.safari.greyWolf,
-			opacity: 0.8,
+			color: colors.safari.eel,
 			fontSize: setFontScale(14),
 			paddingLeft: 10,
 
@@ -240,7 +247,7 @@ export const defaultTheme = {
 			marginBottom: setPorcentageHeight(5),
 		},
 		value: {
-			color: colors.safari.eel,
+			color: "colors.safari.eel",
 			fontSize: setFontScale(16),
 		}
 	},

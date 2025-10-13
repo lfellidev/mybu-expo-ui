@@ -21,10 +21,6 @@ export async function getRemoteConfig(): Promise<any> {
 			data: data.data,
 		};
 	} catch (error: any) {
-		return {
-			status: 400,
-			message: error.message,
-			code: "error_fetching_remote_config"
-		};
+		return error.response.data;		
 	}
 }

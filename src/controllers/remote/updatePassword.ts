@@ -128,11 +128,7 @@ export async function updatePassword(
 				code: "user_blocked",
 			};
 		} else {
-			return {
-				status: 400,
-				message: error.message,
-				code: "general_error",
-			};
+		return error.response.data;		
 		}
 	}
 }

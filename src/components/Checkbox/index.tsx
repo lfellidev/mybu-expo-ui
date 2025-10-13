@@ -4,7 +4,7 @@ import { useTheme } from "../ThemeProvider";
 import styles from "./styles";
 import type { CheckboxTypes } from "./type";
 
-const Checkbox: React.FC<CheckboxTypes> = ({ label, checked, onChange, errorMessage, style }) => {
+const Checkbox: React.FC<CheckboxTypes> = ({ label, checked, onChange, errorMessage, style, disabled }) => {
   const theme = useTheme();
 	const scaleAnim = useRef(new Animated.Value(checked ? 1 : 0)).current;
   const opacityAnim = useRef(new Animated.Value(checked ? 1 : 0)).current;
@@ -87,6 +87,7 @@ const Checkbox: React.FC<CheckboxTypes> = ({ label, checked, onChange, errorMess
       style={[styles.container, style]}
       onPress={handlePress}
       activeOpacity={0.8}
+      disabled={!!disabled}
     >
       <View 
             style={[

@@ -112,39 +112,6 @@ export async function signup(
 			code: "signup_successful",
 		};
 	} catch (error: any) {
-		if (error.response?.status === 401) {
-			return {
-				status: 400,
-				message: error.message,
-				code: "unauthorized_request"
-			};
-		}
-		if (error.response?.status === 404) {
-			return {
-				status: 400,
-				message: error.message,
-				code: "api_not_found"
-				
-			};
-		}
-		if (error.response?.status === 412) {
-			return {
-				status: 400,
-				message: error.message,
-				code: "missing_parameters"
-			};
-		} else if (error.response?.status === 423) {
-			return {
-				status: 423,
-				message: error.message,
-				code: "account_blocked"
-			};
-		} else {
-			return {
-				status: 400,
-				message: error.message,
-				code: "general_error"
-			};
-		}
+	return error.response.data;		
 	}
 }

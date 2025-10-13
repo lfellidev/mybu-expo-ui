@@ -7,38 +7,51 @@ import {useTheme} from "../ThemeProvider";
 import styles from "./styles";
 
 const ListItem: React.FC<ListItemProps> = (props) => {
-	const theme = useTheme();
+  const theme = useTheme();
 
-	return ( 
-		<View>
-			<FlatList
-			data={props.data}
-			keyExtractor={() => generateID()}
-			renderItem={({ item }) => (
-				<TouchableOpacity 
-					onPress={item.onPress}
-					style={[
-						styles.container,
-						{
-						backgroundColor: theme.ListItems.backgroundColor, 
-						paddingVertical: theme.ListItems.paddingVertical,
-						paddingHorizontal: theme.ListItems.paddingHorizontal,
-						borderBottomColor: theme.ListItems.borderBottomColor,			
-				},
-				props.style
-			]}
-			>
-				<Text style={[
-					{ color: theme.ListItems.color },
-					 props.labelStyle
-					 ]}>
-						{item.label}
-						</Text>
-			</TouchableOpacity>
-		)}
-	/>
-	</View>
-);
+  return ( 
+    <View>
+    	<FlatList
+        data={props.data}
+        keyExtractor={() => generateID()}
+        renderItem={({ item }) => (
+          <TouchableOpacity 
+            onPress={item.onPress}
+            style={[
+              styles.container,
+              {
+                backgroundColor: theme.listItems.backgroundColor, 
+                paddingVertical: theme.listItems.paddingVertical,
+                paddingHorizontal: theme.listItems.paddingHorizontal,
+                borderBottomColor: theme.listItems.borderBottomColor,			
+              },
+              props.style
+            ]}
+          >
+            {item.icon ? (
+           		<View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <View style={{ flex: 0.1, justifyContent: 'center' }}>
+                  {item.icon}
+                </View>
+                <View style={{ flex: 0.9, justifyContent: 'center' }}>
+                    <Text style={[
+											{ color: theme.listItems.color },
+											props.labelStyle
+                    ]}>
+                    	{item.label}
+                    </Text>
+                  </View>
+                </View>
+                ) : (
+                  <Text style={[{ color: theme.listItems.color }, props.labelStyle ]}>
+                    {item.label}
+                  </Text>
+                )}
+            </TouchableOpacity>
+       		)}
+    		/>
+  </View>
+	);
 }
 
 export default ListItem;

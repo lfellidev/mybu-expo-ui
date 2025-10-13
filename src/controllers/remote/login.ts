@@ -85,36 +85,6 @@ export async function login(
 			data: data.data,
 		};
 	} catch (error: any) {
-		if (error.response?.status === 403) {
-			return {
-				status: 403,
-				message:  error.message,
-				code: "invalid_credentials",
-			};
-		} else if (error.response?.status === 404) {
-			return {
-				status: 404,
-				message: error.message,
-				code: "user_not_found",
-			};
-		} else if (error.response?.status === 412) {
-			return {
-				status: 400,
-				message: error.message,
-				code: "invalid_request",
-			};
-		} else if (error.response?.status === 423) {
-			return {
-				status: 423,
-				message: "User is blocked",
-				code: "user_blocked",
-			};
-		} else {
-			return {
-				status: 400,
-				message: error.message,
-				code: "general_error"
-			};
-		}
-	}
+		return error.response.data;		
+	}	
 }

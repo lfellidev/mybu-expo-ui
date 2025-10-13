@@ -15,7 +15,6 @@ export async function verifyToken(emailInput: string, tokenInput: string): Promi
 			status: 503,
 			message: "Network service unavailable",
 			code: "no_internet",
-			
 		};
 	}
 
@@ -43,48 +42,12 @@ export async function verifyToken(emailInput: string, tokenInput: string): Promi
 				code: "token_verification_successful",
 			};
 		} catch (error: any) {
-			if (error.response?.status === 401) {
-				return {
-					status: 401,
-					message: error.message,
-					code: "unauthorized",
-				};
-			}
-			if (error.response?.status === 404) {
-				return {
-					status: 404,
-					message: error.message,
-					code: "not_found",
-				};
-			}
-			if (error.response?.status === 412) {
-				return {
-					status: 412,
-					message: error.message,
-					code: "precondition_failed",
-				};
-			}
-			if (error.response?.status === 423) {
-				return {
-					status: 423,
-					message: error.message,
-					code: "user_blocked",
-				};
-			}
-
-			if (attempt === 3) {
-					return {
-					status: 400,
-					message: error.message,
-					code: "general_error",
-				};
-			}
+			return error.response.data;		
 		}
 	}
-
 	return {
 		status: 400,
-		message: "Unknown error occurred",
-		code: "general_error",
+		message: "Token verification failed after multiple attempts",
+		code: "token_verification_failed",
 	};
 }

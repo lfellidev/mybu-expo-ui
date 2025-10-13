@@ -34,4 +34,5 @@ export type Props = {
     data?: SelectItemType[];
     renderItem?: () => React.JSX.Element;
 		itemTextStyle?: StyleProp<TextStyle>;
+		disabled?: boolean;
 };

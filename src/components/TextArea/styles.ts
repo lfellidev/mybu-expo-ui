@@ -7,8 +7,7 @@ const styles = StyleSheet.create({
 
 	},
 	label: {
-		opacity: 0.8,
-		fontWeight: "600",
+		fontWeight: "600",	
 		paddingLeft: 10,
 	},
 

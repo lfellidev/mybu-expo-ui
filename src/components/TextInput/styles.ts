@@ -14,24 +14,22 @@ const styles = StyleSheet.create({
 	inputGroup: {
 		flexDirection: "row",
 		alignItems: "center",
-		borderRadius: 10,
 		paddingLeft: 10,
 		borderWidth: 1,
 	},
 
 	icon: {
-		marginRight: 10,
+		marginRight: setPorcentageWidth(2),
 	},
 	label: {
-		opacity: 0.8,
-		fontWeight: "600",	
+	fontWeight: "500",	
 		paddingLeft: 10,
+	},
+	text: {
+		flex: 1,
 	},
 	textInput: {
 		flex: 1,
-		height: 40,
-		borderRadius: 7,
-		paddingHorizontal: 10,
 		textDecorationLine: "none",
 	},
 	passwordIcon: {

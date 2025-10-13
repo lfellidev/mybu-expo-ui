@@ -88,30 +88,6 @@ export async function resetPasswordVerify(
 			code: "password_reset_success",
 		};
 	} catch (error: any) {
-		if (error.response?.status === 401) {
-			return {
-				status: 401,
-				message: error.message,
-				code: "unauthorized",
-			};
-		} else if (error.response?.status === 404) {
-			return {
-				status: 404,
-				message: error.message,
-				code: "email_not_found",
-			};
-		} else if (error.response?.status === 400) {
-			return {
-				status: 400,
-				message: error.message,
-				code: "invalid_code_or_mismatch",
-			};
-		} else {
-			return {
-				status: 400,
-				message: error.message,
-				code: "unknown_error",
-			};
-		}
+	return error.response.data;		
 	}
 }

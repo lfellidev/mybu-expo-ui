@@ -67,18 +67,6 @@ export async function updateProfile(
 			code: "profile_updated",
 		};
 	} catch (error: any) {
-		if (error.response?.status === 423) {
-			return {
-				status: 423,
-				message: error.message,
-				code: "user_blocked",
-			};
-		} else {
-			return {
-				status: 400,
-				message: error.message,
-				code: "general_error",
-			};
-		}
+	return error.response.data;		
 	}
 }

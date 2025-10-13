@@ -7,4 +7,5 @@ export type CheckboxTypes = {
     onChange: (value: boolean) => void;
 		errorMessage?: boolean;
 		style?: StyleProp<ViewStyle>;
+		disabled?: boolean;
 };

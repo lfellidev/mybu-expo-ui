@@ -9,11 +9,8 @@ import featherBoldPath from "../../assets/fonts/FeatherBold.ttf";
 import inter400Path from "../../assets/fonts/inter/inter400.ttf";
 import poppins400Path from "../../assets/fonts/poppins/poppins400.ttf";
 import default400Path from "../../assets/fonts/default/default400.otf";
-import { useTheme } from "../ThemeProvider";
-
 
 const TextComponent: React.FC<TextComponentTypes> = (props) => {
-const theme = useTheme();
 	const [fontsLoaded] = useFonts({
 		DinNextRound: dinNextRoundPath,
 		Connectcut: connectcutPath,
@@ -23,40 +20,46 @@ const theme = useTheme();
 		Poppins400: poppins400Path,
 	});
 
-	
-
-	useEffect(() => {}, [fontsLoaded]);
+	useEffect(() => {
+		if (!fontsLoaded) {
+			console.log("Fontes ainda carregando...");
+		} else {
+			console.log("Fontes carregadas:", fontsLoaded);
+		}
+	}, [fontsLoaded]);
 
 	if (!fontsLoaded) {
 		return null;
 	}
 
+
+	const getFontFamily = (fontFamily: string | undefined) => {
+		console.log("fontFamily prop:", fontFamily);
+		switch (fontFamily) {
+			case "DIN Next Rounded":
+				return "DinNextRound";
+			case "Feather Bold":
+				return "FeatherBold";
+			case "Connecticut":
+				return "Connectcut";
+			case "Inter":
+				return "Inter400";
+			case "Poppins":
+				return "Poppins400";
+			default:
+				return "Default400";
+		}
+	};
+
 	return (
 		<Text
-			style={[{
-				fontFamily:
-					props.fontFamily === "DIN Next Rounded"
-					? "DinNextRound"
-					: props.fontFamily === "Feather Bold"
-					? "FeatherBold"
-					: props.fontFamily === "Connecticut"
-					? "Connectcut"
-					: props.fontFamily === "Inter"
-					? "Inter400"
-					: props.fontFamily === "Poppins"
-					? "Poppins400"
-					: "Default400",
-			},
-			{
-				fontSize: theme.text.fontSize,
-				color: theme.text.color,
-				fontWeight: theme.text.fontWeight?.toString() as any
-			},
-
-
-			
-				props.style,
-			]}
+			style={
+			props.fontFamily?
+			[		
+				{	fontFamily: getFontFamily(props.fontFamily) },
+				props.style, 
+			]: props.style
+		}
 		>
 			{props.children}
 		</Text>

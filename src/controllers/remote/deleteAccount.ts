@@ -70,35 +70,6 @@ export async function deleteAccount(
 			code: "account_deleted_successfully",
 		};
 	} catch (error: any) {
-		if (error.response?.status === 404) {
-			return {
-				status: 400,
-				message: "Email not found in our records",
-				debugMessage: error.message,
-				code: "email_not_found",
-
-			};
-		} else if (error.response?.status === 423) {
-			return {
-				status: 400,
-				message: "User is blocked",
-				debugMessage: error.message,
-				code: "user_blocked",
-			};
-		} else if (error.response?.status === 403) {
-			return {
-				status: 400,
-				message: "Password is incorrect",
-				debugMessage: error.message,
-				code: "password_incorrect",
-			};
-		} else {
-			return {
-				status: 400,
-				message: "An error occurred while deleting the account",
-				debugMessage: error.message,
-				code: "general_error",
-			};
-		}
+		return error.response.data;		
 	}
 }

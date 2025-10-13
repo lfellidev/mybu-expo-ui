@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { View, TextInput  } from "react-native";
+import { View, TextInput, Text } from "react-native";
 import type { StyleProp, TextStyle } from "react-native";
 import { useTheme } from "../ThemeProvider";
 import Icon from "../Icon";
-import Text from "../Text";
+
 import styles from "./styles";
 
 type TextInputTypes = {
 	label: string;
 	showLabel?: boolean;
-	labelStyle?: TextStyle;
+	labelStyle?: StyleProp<TextStyle>;
 	value: string;
 	onChangeText: (text: string) => void;
 	icon: string;
@@ -18,15 +18,16 @@ type TextInputTypes = {
 	disabled?: boolean;
 	style?: StyleProp<TextStyle>;
 	containerStyle?: StyleProp<TextStyle>;
-	errorMessage?:string;
+	errorMessage?: string;
 	required?: boolean;
+	placeholder?: string;
 };
 
 const TextInputComponent: React.FC<TextInputTypes> = (
 	props
 ): React.JSX.Element => {
 	const theme = useTheme();
-	const { disabled, label, value, onChangeText, isPassword, keyboardType } =
+	const { disabled, value, onChangeText, isPassword, keyboardType } =
 		props;
 	const [secureTextEntry, setSecureTextEntry] = useState(isPassword);
 	const [isFocused, setIsFocused] = useState(false);
@@ -37,30 +38,32 @@ const TextInputComponent: React.FC<TextInputTypes> = (
 		},
 	];
 
-	
-
-
 	return (
-		<View style={[styles.container, props.containerStyle]}>
+		<View style={[
+			styles.container, 
+		props.containerStyle]}>
 			<View
 				style={{
-					height:theme.input.labelSize + 4
+					height: theme.input.labelSize + (theme.input.labelSize/2) ,
 				}}
-			
 			>
-			{props.showLabel && value && value.length > 0 ? (
-				<Text 
-				style={[
-					styles.label, 
-					{
-						color: theme.input.labelColor,
-						fontSize: theme.input.labelSize,
-			
-					},
-				props.labelStyle]}>
-					{props.label}:{props.required ? "*" : null}
-				</Text>
-			) : null}
+				{props.showLabel ? (
+					<Text
+						style={[
+							styles.label,
+							{
+								color: theme.input.labelColor,
+								fontSize: theme.input.labelSize,
+								fontWeight: "600",
+								
+							},
+							props.labelStyle,
+							isFocused && { color: theme.input.borderColorFocus },
+						]}
+					>
+						{props.label}:{props.required ? "*" : null}
+					</Text>
+				) : null}
 			</View>
 			<View
 				style={[
@@ -68,13 +71,13 @@ const TextInputComponent: React.FC<TextInputTypes> = (
 					{
 						backgroundColor: theme.input.iconBackground,
 						borderColor: theme.input.borderColor,
+						borderRadius: theme.input.borderRadius,
 					},
 					isFocused && {
-						borderColor: theme.input.borderColor,
+						borderColor: theme.input.borderColorFocus,
 						borderWidth: 2,
 					},
 					props.errorMessage ? errorBorderStyle : null,
-					
 				]}
 			>
 				<Icon
@@ -86,7 +89,7 @@ const TextInputComponent: React.FC<TextInputTypes> = (
 				<TextInput
 					editable={!disabled}
 					keyboardType={keyboardType}
-					placeholder={label}
+					placeholder={props.placeholder}
 					value={value}
 					onChangeText={onChangeText}
 					secureTextEntry={secureTextEntry}
@@ -94,12 +97,21 @@ const TextInputComponent: React.FC<TextInputTypes> = (
 					autoComplete="off"
 					onFocus={() => setIsFocused(true)}
 					onBlur={() => setIsFocused(false)}
-					style={[styles.textInput,
+					style={[
+						styles.textInput,
 						{
+							borderRadius: theme.input.borderRadius,
+							height: theme.input.height,
 							backgroundColor: theme.input.backgroundColor,
 							color: theme.input.color,
+							paddingTop: theme.input.paddingTop,
+							paddingRight: theme.input.paddingRight,
+							paddingBottom: theme.input.paddingBottom,
+							paddingLeft: theme.input.paddingLeft,
+							textDecorationLine: "none",
 						},
-						props.style]}
+						props.style,
+					]}
 				/>
 				{isPassword ? (
 					<Icon

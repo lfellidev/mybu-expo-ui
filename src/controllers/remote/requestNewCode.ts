@@ -59,30 +59,6 @@ export async function requestNewCode(email: string): Promise<ResponseTypes> {
 			code: "verification_code_sent",
 		};
 	} catch (error: any) {
-		if (error.response?.status === 404) {
-			return {
-				status: 400,
-				message: error.message,
-				code: "email_not_found",
-			};
-		} else if (error.response?.status === 412) {
-			return {
-				status: 400,
-				message: error.message,
-				code: "email_not_verified",
-			};
-		} else if (error.response?.status === 423) {
-			return {
-				status: 423,
-				message: error.message,
-				code: "user_blocked",
-			};
-		} else {
-			return {
-				status: 400,
-				message: error.message,
-				code: "general_error",
-			};
-		}
+		return error.response.data;		
 	}
 }

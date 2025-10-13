@@ -55,7 +55,7 @@ const Select: React.FC<Props> = (props) => {
 						styles.label, 
 						{
 							color: theme.select.item.color,
-							opacity: theme.select.label.opacity,
+
 							fontSize: theme.input.labelSize,
 							paddingLeft: theme.select.label.paddingLeft,
 						},
@@ -64,6 +64,7 @@ const Select: React.FC<Props> = (props) => {
 				)}
 
 				<TouchableOpacity
+					disabled={props.disabled}
 					style={[
 						styles.textInput,
 						{
@@ -86,10 +87,11 @@ const Select: React.FC<Props> = (props) => {
 						}}
 					/>
 					<Text 
-						style={[styles.text,
+						style={[styles.label,
 							{		
 								color: theme.select.value.color,
 								fontSize: theme.select.value.fontSize,
+								marginBottom: theme.input.labelSize + theme.input.labelSize / 2,
 							}
 						]}
 						>
