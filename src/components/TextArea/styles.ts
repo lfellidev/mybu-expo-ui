@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
 	label: {
 		fontWeight: "600",	
 		paddingLeft: 10,
+		
 	},
 
 	

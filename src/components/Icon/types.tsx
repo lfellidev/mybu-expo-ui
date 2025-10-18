@@ -31,4 +31,5 @@ export type IconTypes = {
   style?: StyleProp<ViewStyle>;
   onPress?: () => void;
   disabled?: boolean;
+	skeleton?: boolean;
 }

@@ -1,4 +1,5 @@
 //Components
+export {default as Splash} from "expo-splash-screen";
 export {default as Alert} from "./components/Alert";
 export {default as BottomSheet} from "./components/BottomSheet";
 export {default as Button} from "./components/Button";
@@ -11,6 +12,7 @@ export {default as Icon} from "./components/Icon";
 export {default as InputSpinner} from "./components/InputSpinner";
 export {default as ListItem} from "./components/ListItems";
 export {default as Select} from "./components/Select";
+export {default as Skeleton} from "./components/Skeleton";
 export {default as Switch} from "./components/Switch";
 export {default as Text} from "./components/Text";
 export {default as TextArea} from "./components/TextArea";
@@ -21,7 +23,6 @@ export {useTheme} from "./components/ThemeProvider";
 export {default as Lottie} from "./components/Lottie";
 
 //Controllers
-
 export {capitalize} from "./controllers/capitalize";
 export {formatTime} from "./controllers/formatTime";
 export {generateID} from "./controllers/generateID";

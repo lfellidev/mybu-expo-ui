@@ -6,4 +6,5 @@ export type CountdownTypes = {
 	radius?: number;
 	strokeWidth?: number;
 	numberStyle?: StyleProp<TextStyle>
+	skeleton?: boolean;
 }

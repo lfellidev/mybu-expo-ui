@@ -9,5 +9,6 @@ export type LottieTypes = {
 	height: number;
 	style?: StyleProp<ViewStyle>;
 	autoPlay?: boolean;
+	skeleton?: boolean;
 	autoplay?: boolean;
 };

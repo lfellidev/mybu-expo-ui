@@ -1,5 +1,5 @@
-import React from "react";
-import { TouchableOpacity } from "react-native";
+import React, { useEffect, useRef } from "react";
+import { TouchableOpacity, Animated } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
@@ -10,6 +10,41 @@ import type { IconTypes } from "./types";
 
 
 const IconComponent: React.FC<IconTypes> = (props) => {
+  const fadeAnim = useRef(new Animated.Value(0.5)).current;
+
+  useEffect(() => {
+    if (props.skeleton) {
+      Animated.loop(
+        Animated.sequence([
+          Animated.timing(fadeAnim, {
+            toValue: 1,
+            duration: 500,
+            useNativeDriver: true,
+          }),
+          Animated.timing(fadeAnim, {
+            toValue: 0.5,
+            duration: 500,
+            useNativeDriver: true,
+          }),
+        ])
+      ).start();
+    }
+  }, [props.skeleton, fadeAnim]);
+
+  if (props.skeleton) {
+    return (
+      <Animated.View
+        style={{
+          width: props.size,
+          height: props.size,
+          backgroundColor: '#e0e0e0',
+          opacity: fadeAnim,
+          borderRadius: props.size / 2, 
+        }}
+      />
+    );
+  }
+
   const Icon =
     props.type === "MaterialCommunity"
       ? MaterialCommunityIcons
@@ -21,9 +56,9 @@ const IconComponent: React.FC<IconTypes> = (props) => {
       ? Feather
       : props.type === "AntDesign"
       ? AntDesign
-			: props.type==="Ionicons"
-      ? Ionicons:
-			MaterialCommunityIcons
+      : props.type === "Ionicons"
+      ? Ionicons
+      : MaterialCommunityIcons
 
   const iconElement = (
     <Icon size={props.size} name={props.name as any} color={props.color} style={props.style} />

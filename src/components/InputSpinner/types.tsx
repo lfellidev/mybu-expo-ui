@@ -8,4 +8,5 @@ export type InputSpinnerTypes = {
 	buttonStyle?: ViewStyle;
 	buttonText?: TextStyle;
 	valueStyle?: TextStyle;
+	skeleton?: boolean;
 };

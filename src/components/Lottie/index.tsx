@@ -1,5 +1,5 @@
-import React from "react";
-import { View } from "react-native";
+import React, { useEffect, useRef } from "react";
+import { View, Animated } from "react-native";
 import LottieView from "lottie-react-native";
 import styles from "./styles";
 import { setPorcentageWidth } from "../../controllers/setPorcentageWidth";
@@ -23,63 +23,94 @@ import unlockJson from "./libraries/unlock.json";
 
 
 const LottieComponent: React.FC<LottieTypes> = (props): React.JSX.Element => {
-	const object =
-	props.name === "bye" ? byeJson :
-	props.name==="caution" ? cautionJson :
-	props.name==="confetti" ? confettiJson :
-	props.name==="crown" ? crownJson :
-	props.name==="error" ? errorJson :
-	props.name==="gift" ? giftJson :
-	props.name==="hat" ? hatJson :
-	props.name==="password" ? passwordJson :
-	props.name==="sad" ? sadJson :
-	props.name=="star" ? starJson :
-	props.name==="success" ? successJson :
-	props.name==="synced" ? syncedJson :
-	props.name=="thumbs-up" ? thumbsUpJson :
-	props.name=="thumbs-down" ? thumbsDownJson :
-	props.name==="unlock" ? unlockJson :
-	null;
-	
-	if (props.src) {
-		return  (
-  		<View style={styles.container}>
-    		<LottieView
-      		source={props.src}
-      		autoPlay={props.autoPlay || props.autoplay || true}
-      		loop={Boolean(props.loop) || false}
-      		style={[
-						{
-          		width: props.width || setPorcentageWidth(30),
-          		height: props.height || setPorcentageWidth(30),
-        		},
-       	 		props.style,
-      		]}
-   	 		/>
-			</View>
-		);
-	} else {
-		if (object) {
-			return  (
-				<View style={styles.container}>
-					<LottieView
-						source={object}
-						autoPlay={props.autoPlay || props.autoplay || true}
-						loop={Boolean(props.loop) || false}
-						style={[
-							{
-								width: props.width || setPorcentageWidth(30),
-								height: props.height || setPorcentageWidth(30),
-							},
-							props.style,
-						]}
-					/>
-				</View>
-			);
-		} else {
-			console.warn("Lottie: You must provide a valid 'name' prop or a 'src' prop.");
-			return <></>;
-		}
+    const opacity = useRef(new Animated.Value(0.5)).current;
+
+    useEffect(() => {
+        if (props.skeleton) {
+            Animated.loop(
+                Animated.sequence([
+                    Animated.timing(opacity, { toValue: 1, duration: 500, useNativeDriver: true }),
+                    Animated.timing(opacity, { toValue: 0.5, duration: 500, useNativeDriver: true }),
+                ])
+            ).start();
+        }
+    }, [props.skeleton]);
+
+    const object =
+    props.name === "bye" ? byeJson :
+    props.name==="caution" ? cautionJson :
+    props.name==="confetti" ? confettiJson :
+    props.name==="crown" ? crownJson :
+    props.name==="error" ? errorJson :
+    props.name==="gift" ? giftJson :
+    props.name==="hat" ? hatJson :
+    props.name==="password" ? passwordJson :
+    props.name==="sad" ? sadJson :
+    props.name=="star" ? starJson :
+    props.name==="success" ? successJson :
+    props.name==="synced" ? syncedJson :
+    props.name=="thumbs-up" ? thumbsUpJson :
+    props.name=="thumbs-down" ? thumbsDownJson :
+    props.name==="unlock" ? unlockJson :
+    null;
+    
+    if (props.skeleton) {
+        return (
+            <View style={styles.container}>
+                <Animated.View
+                    style={[
+                        {
+                            width: props.width || setPorcentageWidth(30),
+                            height: props.height || setPorcentageWidth(30),
+                            backgroundColor: '#e0e0e0',
+                            opacity,
+                        },
+                        props.style,
+                    ]}
+                />
+            </View>
+        );
+    }
+
+    if (props.src) {
+        return  (
+          <View style={styles.container}>
+            <LottieView
+              source={props.src}
+              autoPlay={props.autoPlay || props.autoplay || true}
+              loop={Boolean(props.loop) || false}
+              style={[
+                        {
+                  width: props.width || setPorcentageWidth(30),
+                  height: props.height || setPorcentageWidth(30),
+                },
+            		props.style,
+              ]}
+        		/>
+            </View>
+        );
+    } else {
+        if (object) {
+            return  (
+                <View style={styles.container}>
+                    <LottieView
+                        source={object}
+                        autoPlay={props.autoPlay || props.autoplay || true}
+                        loop={Boolean(props.loop) || false}
+                        style={[
+                            {
+                                width: props.width || setPorcentageWidth(30),
+                                height: props.height || setPorcentageWidth(30),
+                            },
+                            props.style,
+                        ]}
+                    />
+                </View>
+            );
+        } else {
+            console.warn("Lottie: You must provide a valid 'name' prop or a 'src' prop.");
+            return <></>;
+        }
 }
 };
 

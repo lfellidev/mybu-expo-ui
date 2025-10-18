@@ -31,6 +31,10 @@ export const defaultTheme = {
 
 	backgroundColor: colors.safari.snow,
 
+	skeleton:{
+		color: colors.safari.swan,
+	},
+
 	bottomSheet: {
 		closeColor: colors.safari.hare,
 		backgroundColor: colors.safari.snow,
@@ -51,6 +55,7 @@ export const defaultTheme = {
 	},
 
 	button: {
+		style: "default",
 		borderRadius: 10,
 		marginTop: 0,
 		marginRight: 0,
@@ -178,7 +183,7 @@ export const defaultTheme = {
 		backgroundColorFocus: colors.safari.swan,
 		borderColorFocus: colors.safari.macaw,
 		borderRadius: 10,
-		errorBorder: colors.safari.fireAnt,
+		errorColor: colors.safari.fireAnt,
 		paddingTop: setPorcentageHeight(0.5),
 		paddingRight: setPorcentageWidth(2.5),
 		paddingBottom: setPorcentageHeight(0.5),

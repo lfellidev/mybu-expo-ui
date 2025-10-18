@@ -35,4 +35,6 @@ export type Props = {
     renderItem?: () => React.JSX.Element;
 		itemTextStyle?: StyleProp<TextStyle>;
 		disabled?: boolean;
+		errorMessage?: string;
+		skeleton?: boolean;
 };

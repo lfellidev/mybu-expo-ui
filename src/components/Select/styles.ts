@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
 		width: "100%",
 	},
 	label: {
-		fontWeight: "600",
+		fontWeight: 600,
 	},
 	text: {
 		flex: 1,
