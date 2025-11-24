@@ -108,7 +108,6 @@ const LottieComponent: React.FC<LottieTypes> = (props): React.JSX.Element => {
                 </View>
             );
         } else {
-            console.warn("Lottie: You must provide a valid 'name' prop or a 'src' prop.");
             return <></>;
         }
 }

@@ -64,7 +64,7 @@ const InputSpinnerComponent: React.FC<InputSpinnerTypes> = (props): React.JSX.El
 
   const skeletonStyle = [
     {
-      backgroundColor: '#e0e0e0',
+      backgroundColor: theme.skeleton.color || "#e0e0e0",
       opacity: fadeAnim,
     },
   ];
@@ -80,15 +80,22 @@ const InputSpinnerComponent: React.FC<InputSpinnerTypes> = (props): React.JSX.El
   }
 
   return (
-    <>
-      <View style={styles.container}>
-        <TouchableOpacity
-          onPress={props.decreaseOnPress}
-          style={touchableOpacityStyle}
-          disabled={props.disabled}
-        >
-          <Text style={textStyle}>-</Text>
-        </TouchableOpacity>
+    <View style={styles.container}>
+	    <Text 
+				style={[
+					styles.label, 
+					{fontSize: theme.switch.fontSize}
+				]}
+			>
+				{props.label}
+			</Text>
+      <TouchableOpacity
+        onPress={props.decreaseOnPress}
+        style={touchableOpacityStyle}
+        disabled={props.disabled}
+      >
+        <Text style={textStyle}>-</Text>
+      </TouchableOpacity>
         <Text style={valueStyle}>{props.value}</Text>
         <TouchableOpacity
           onPress={props.increaseOnPress}
@@ -98,7 +105,6 @@ const InputSpinnerComponent: React.FC<InputSpinnerTypes> = (props): React.JSX.El
           <Text style={textStyle}>+</Text>
         </TouchableOpacity>
       </View>
-    </>
   );
 };
 

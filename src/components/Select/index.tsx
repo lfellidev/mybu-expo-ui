@@ -41,7 +41,6 @@ const Select: React.FC<Props> = (props) => {
     }, [props.skeleton, fadeAnim]);
 
     const handlePress = () => {
-        console.log("Select pressed");
         if (props.onPress) {
             props.onPress();
         }
@@ -49,7 +48,6 @@ const Select: React.FC<Props> = (props) => {
     };
 
     const handleClose = () => {
-        console.log("Select closed");
         setVisible(false);
         if (props.onClose) {
             props.onClose();

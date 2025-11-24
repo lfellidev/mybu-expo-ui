@@ -7,10 +7,11 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import Feather from "@expo/vector-icons/Feather";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import type { IconTypes } from "./types";
-
+import { useTheme } from "../ThemeProvider";
 
 const IconComponent: React.FC<IconTypes> = (props) => {
   const fadeAnim = useRef(new Animated.Value(0.5)).current;
+	const theme = useTheme();
 
   useEffect(() => {
     if (props.skeleton) {
@@ -37,7 +38,7 @@ const IconComponent: React.FC<IconTypes> = (props) => {
         style={{
           width: props.size,
           height: props.size,
-          backgroundColor: '#e0e0e0',
+          backgroundColor: theme.skeleton.color || "#e0e0e0",
           opacity: fadeAnim,
           borderRadius: props.size / 2, 
         }}

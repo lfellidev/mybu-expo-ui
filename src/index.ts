@@ -1,11 +1,11 @@
 //Components
-export {default as Splash} from "expo-splash-screen";
 export {default as Alert} from "./components/Alert";
 export {default as BottomSheet} from "./components/BottomSheet";
 export {default as Button} from "./components/Button";
 export {default as Checkbox} from "./components/Checkbox";
 export {default as Container} from "./components/Container";
 export {default as Countdown} from "./components/Countdown";
+export {default as Feature} from "./components/Feature";
 export {default as Group} from "./components/Group";
 export {default as HeaderMenu} from "./components/HeaderMenu";
 export {default as Icon} from "./components/Icon";
@@ -14,6 +14,7 @@ export {default as ListItem} from "./components/ListItems";
 export {default as Select} from "./components/Select";
 export {default as Skeleton} from "./components/Skeleton";
 export {default as Switch} from "./components/Switch";
+export {default as PricingCard} from "./components/PricingCard";
 export {default as Text} from "./components/Text";
 export {default as TextArea} from "./components/TextArea";
 export {default as TextInput} from "./components/TextInput";
@@ -44,6 +45,7 @@ export {getRemoteConfig} from "./controllers/remote/getRemoteConfig";
 export {requestNewCode} from "./controllers/remote/requestNewCode";
 export {verifyCode} from "./controllers/remote/verifyCode";
 export {verifyToken} from "./controllers/remote/verifyToken";
+export {verifyCoupon} from "./controllers/remote/verifyCoupon";
 
 export {getSupport} from "./controllers/remote/getSupport";
 export {resetPassword} from "./controllers/remote/resetPassword";

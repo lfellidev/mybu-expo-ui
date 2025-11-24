@@ -5,6 +5,9 @@ import { setPorcentageHeight } from "../../controllers/setPorcentageHeight";
 import { setPorcentageWidth } from "../../controllers/setPorcentageWidth";
 import { setResponsiveSize } from "../../controllers/setResponsiveSize";
 
+
+
+
 export const defaultTheme = {
 	alert: {
 		fontSize: setFontScale(14),
@@ -152,6 +155,12 @@ export const defaultTheme = {
 		leftPadding: 0,
 	},
 
+	feature: {
+		yesColor: colors.safari.treeFrog,
+		noColor: colors.safari.fireAnt,	
+		iconSize: setResponsiveSize(24),	
+	},
+
 	group: {
 		backgroundColor: "transparent",
 		paddingTop: 0,
@@ -223,6 +232,91 @@ export const defaultTheme = {
 		borderBottomColor: colors.safari.swan,
 		fontSize: setFontScale(16),
 	
+	},
+
+	pricing: {
+	  gap: 16,
+    borderRadius: 8,
+    padding: 16,
+    marginBottom: 16,
+
+		button: {
+			TheBestValue: {
+				backgroundColor: colors.safari.whale,
+				borderColor: colors.safari.whale,
+				color: colors.safari.snow,
+				borderWidth: 1,
+			},
+			regular: {
+				backgroundColor: colors.safari.snow,
+				borderColor: colors.safari.blackPanther,
+				color: colors.safari.blackPanther,
+				borderWidth: 1,
+			}
+		},
+
+		text: {
+			theBestValue: {
+				description:{
+					fontSize: setFontScale(18),
+					fontWeight: 400,
+					color: colors.safari.snow,
+				},
+			
+				price:{
+					fontSize: setFontScale(24),
+					fontWeight: 700,
+					color: colors.safari.snow,	
+				},
+
+				suffix:{	
+					fontSize: setFontScale(16),
+					fontWeight: 400,
+					color: colors.safari.snow,
+				},
+				
+				title:{
+					fontSize: setFontScale(32),
+					fontWeight: 700,
+					color: colors.safari.snow,
+				},
+			},
+			regular: {
+				description:{
+					fontSize: setFontScale(18),
+					fontWeight: 400,
+					color: colors.safari.blackPanther,
+				},
+			
+				price:{
+					fontSize: setFontScale(24),
+					fontWeight: 700,
+					color: colors.safari.blackPanther,	
+				},
+
+				suffix:{	
+					fontSize: setFontScale(16),
+					fontWeight: 400,
+					color: colors.safari.blackPanther,
+				},
+				
+				title:{
+					fontSize: setFontScale(32),
+					fontWeight: 700,
+					color: colors.safari.blackPanther,
+				},
+			},
+		},
+
+		theBestValueTag: {
+			backgroundColor: colors.safari.treeFrog,
+			color: colors.safari.snow,
+			borderColor: colors.safari.treeFrog,
+			borderWidth: 1,
+			fontSize: setFontScale(12),
+			fontWeight: 600,
+	},
+		
 	},
 
 	select: {

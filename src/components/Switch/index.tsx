@@ -51,7 +51,7 @@ const SwitchComponent: React.FC<Props> = (props) => {
                         styles.label,
                         {
                             fontSize: theme.switch.fontSize,
-                            backgroundColor: '#e0e0e0',
+                            backgroundColor: theme.skeleton.color || "#e0e0e0",
                             opacity: shimmerAnim.interpolate({
                                 inputRange: [0, 1],
                                 outputRange: [0.5, 1],
@@ -65,13 +65,13 @@ const SwitchComponent: React.FC<Props> = (props) => {
                     style={[
                         styles.container,
                         {
-                            backgroundColor: '#e0e0e0',
+                            backgroundColor: theme.skeleton.color || "#e0e0e0",
                             opacity: shimmerAnim.interpolate({
                                 inputRange: [0, 1],
                                 outputRange: [0.5, 1],
                             }),
-                            width: 50, // Approximate switch width
-                            height: 30, // Approximate switch height
+                            width: 50,
+                            height: 30, 
                             marginBottom: theme.switch.marginBottom,
                             borderRadius: 15,
                         },

@@ -21,6 +21,7 @@ export const deleteAPI: string = `${process.env.EXPO_PUBLIC_API_DOMAIN}/delete`;
 export const customGetAPI: string = `${process.env.EXPO_PUBLIC_API_DOMAIN}/custom/get`;
 export const customSetAPI: string = `${process.env.EXPO_PUBLIC_API_DOMAIN}/custom/set`;
 export const customDeleteAPI: string = `${process.env.EXPO_PUBLIC_API_DOMAIN}/custom/delete`;
+export const verifyCouponAPI: string = `${process.env.EXPO_PUBLIC_API_DOMAIN}/verifyCoupon`;
 
 export const appleRevenueCat: string | undefined =
 	process.env.EXPO_PUBLIC_REVENUECAT_APPLE;

@@ -6,6 +6,7 @@ export async function goToStore() {
 	if (typeof url === "string") {
 		await Linking.openURL(url);
 	} else {
-		console.warn("Store URL is undefined");
+		return;
+
 	}
 }

@@ -7,21 +7,18 @@ import Alert from "../Alert";
 import BottomSheet from "../BottomSheet";
 import HeadeMenu from "../HeaderMenu";
 import { useTheme } from "../ThemeProvider";
+import { setPorcentageHeight } from "../../controllers/setPorcentageHeight";
 
 const Container: React.FC<ContainerTypes> = (props) => {
 	const theme = useTheme();
 
 	useEffect(() => {
-		function disableBackPress() {
-			if (props.noBackHandler) {
-    		const backHandler = BackHandler.addEventListener("hardwareBackPress", () => true);
-    		return () => backHandler.remove();
-			} else{
-				return;
-			}
+		if (props.noBackHandler) {
+			const backHandler = BackHandler.addEventListener("hardwareBackPress", () => true);
+			return () => backHandler.remove();
 		}
-		disableBackPress();
-  }, []);
+		return undefined;
+	}, [props.noBackHandler]);
 
 	return (
 		<>
@@ -60,7 +57,15 @@ const Container: React.FC<ContainerTypes> = (props) => {
 					style={{ flex: 1 }}
 				>
 					{props.scrollable ? (
-						<ScrollView>{props.children}</ScrollView>
+						<ScrollView>
+							{props.children}
+							<View 
+								style={{
+									height: setPorcentageHeight(10),
+									width: '100%',
+								}}
+							/>
+						</ScrollView>
 					) : (
 						props.children
 					)}

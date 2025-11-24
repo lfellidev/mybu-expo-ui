@@ -123,11 +123,11 @@ const Checkbox: React.FC<CheckboxTypes> = ({ label, checked, onChange, errorMess
             style={[
               styles.label,
               {
-                width: label.length * 8, // Approximate width based on label length
-                height: 16, // Approximate label height, adjust as needed
+                width: label.length * 8, 
+                height: 16, 
                 backgroundColor: theme.checkbox.backgroundColor,
                 opacity: skeletonOpacity,
-                marginLeft: 8, // Adjust spacing
+                marginLeft: 8, 
               },
             ]}
           />
