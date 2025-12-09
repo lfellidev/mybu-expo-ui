@@ -12,8 +12,8 @@ type Props = {
     labelStyle?: ViewStyle;
     disabled?: boolean;
     style?: ViewStyle;
-    trackColorFalse: string;
-    trackColorTrue: string;
+    trackColorFalse?: string;
+    trackColorTrue?: string;
     skeleton?: boolean;
 };
 
