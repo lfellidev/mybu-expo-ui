@@ -1,4 +1,3 @@
-//Components
 export {default as Alert} from "./components/Alert";
 export {default as BottomSheet} from "./components/BottomSheet";
 export {default as Button} from "./components/Button";
@@ -23,7 +22,6 @@ export {ThemeProvider} from "./components/ThemeProvider";
 export {useTheme} from "./components/ThemeProvider";
 export {default as Lottie} from "./components/Lottie";
 
-//Controllers
 export {capitalize} from "./controllers/capitalize";
 export {formatTime} from "./controllers/formatTime";
 export {generateID} from "./controllers/generateID";
@@ -65,7 +63,6 @@ export {goToStore} from "./controllers/goToStore";
 export { activateKeepAwakeAsync, deactivateKeepAwake } from 'expo-keep-awake';
 export * as Battery from 'expo-battery';
 
-//Vars
 export {colors} from "./palettes";
 export {applicationData} from "./constants";
 export {constantsData} from "./constants";
@@ -74,7 +71,6 @@ export {appStoreData} from "./constants";
 export {statusbarHeight} from "./constants";
 export {deviceLanguage} from "./constants";
 
-//Sounds
 import beepSound from "./assets/sounds/beep.mp3";
 export { beepSound };
 
