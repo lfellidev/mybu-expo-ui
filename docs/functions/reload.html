@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reload - mybu-expo-ui</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); color: white; padding: 30px 20px; margin-bottom: 30px; }
+        header a { color: white; text-decoration: none; opacity: 0.8; }
+        header h1 { margin-top: 10px; }
+        .section { background: white; border-radius: 8px; padding: 25px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .section h2 { color: #11998e; border-bottom: 2px solid #11998e; padding-bottom: 10px; margin-bottom: 20px; }
+        pre { background: #1e1e1e; color: #d4d4d4; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 15px 0; }
+        code { font-family: 'Fira Code', Consolas, monospace; }
+        .keyword { color: #569cd6; }
+        .string { color: #ce9178; }
+        .type { color: #4ec9b0; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html">← Back to Documentation</a>
+            <h1>reload</h1>
+            <p>App reload utility function</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Import</h2>
+            <pre><code><span class="keyword">import</span> { reload } <span class="keyword">from</span> <span class="string">'mybu-expo-ui'</span>;</code></pre>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Reloads the Expo app using the Updates API. This is useful for applying updates or resetting the app state.</p>
+        </div>
+
+        <div class="section">
+            <h2>Signature</h2>
+            <pre><code><span class="keyword">async function</span> reload(): <span class="type">Promise&lt;void&gt;</span></code></pre>
+        </div>
+
+        <div class="section">
+            <h2>Returns</h2>
+            <p><code>Promise&lt;void&gt;</code> - Resolves when the reload is initiated.</p>
+        </div>
+
+        <div class="section">
+            <h2>Usage Example</h2>
+            <pre><code><span class="keyword">import</span> { reload } <span class="keyword">from</span> <span class="string">'mybu-expo-ui'</span>;
+
+<span class="comment">// Reload the app</span>
+<span class="keyword">await</span> reload();
+
+<span class="comment">// Use with a button</span>
+&lt;<span class="type">Button</span> onPress={reload}&gt;
+  Restart App
+&lt;/<span class="type">Button</span>&gt;
+
+<span class="comment">// Use after applying an update</span>
+<span class="keyword">const</span> applyUpdate = <span class="keyword">async</span> () => {
+  <span class="keyword">await</span> Updates.fetchUpdateAsync();
+  <span class="keyword">await</span> reload();
+};</code></pre>
+        </div>
+
+        <div class="section">
+            <h2>Notes</h2>
+            <ul style="margin-left: 20px;">
+                <li>Uses <code>expo-updates</code> reloadAsync under the hood</li>
+                <li>Works in production and development builds</li>
+                <li>The app will fully restart, losing any unsaved state</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

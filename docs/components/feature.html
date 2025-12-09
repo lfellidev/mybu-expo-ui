@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature - mybu-expo-ui</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px 20px; margin-bottom: 30px; }
+        header a { color: white; text-decoration: none; opacity: 0.8; }
+        header h1 { margin-top: 10px; }
+        .section { background: white; border-radius: 8px; padding: 25px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .section h2 { color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 10px; margin-bottom: 20px; }
+        pre { background: #1e1e1e; color: #d4d4d4; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 15px 0; }
+        code { font-family: 'Fira Code', Consolas, monospace; }
+        .keyword { color: #569cd6; }
+        .string { color: #ce9178; }
+        .type { color: #4ec9b0; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { border: 1px solid #e0e0e0; padding: 12px; text-align: left; }
+        th { background: #f8f9fa; font-weight: 600; }
+        .required { color: #d32f2f; font-size: 0.8rem; }
+        .optional { color: #388e3c; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html">← Back to Documentation</a>
+            <h1>Feature</h1>
+            <p>Feature list component with yes/no icons</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Import</h2>
+            <pre><code><span class="keyword">import</span> { Feature } <span class="keyword">from</span> <span class="string">'mybu-expo-ui'</span>;</code></pre>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>The Feature component displays a list of features with check or cancel icons. It's perfect for showing included/excluded features in pricing plans, product comparisons, or feature lists.</p>
+        </div>
+
+        <div class="section">
+            <h2>Props</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Prop</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>items</code></td>
+                        <td><code>FeatureItem[]</code></td>
+                        <td><span class="required">Required</span></td>
+                        <td>Array of feature items to display</td>
+                    </tr>
+                    <tr>
+                        <td><code>style</code></td>
+                        <td><code>StyleProp&lt;ViewStyle&gt;</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Custom styles for each feature row</td>
+                    </tr>
+                    <tr>
+                        <td><code>skeleton</code></td>
+                        <td><code>number</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Number of skeleton rows to show</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin-top: 20px;">FeatureItem Structure</h3>
+            <pre><code>{
+  icon?: <span class="string">"yes"</span> | <span class="string">"no"</span>,  <span class="comment">// Determines which icon to show</span>
+  text: <span class="type">string</span>              <span class="comment">// Feature description text</span>
+}</code></pre>
+        </div>
+
+        <div class="section">
+            <h2>Usage Example</h2>
+            <pre><code><span class="keyword">import</span> { Feature } <span class="keyword">from</span> <span class="string">'mybu-expo-ui'</span>;
+
+<span class="comment">// Feature list</span>
+&lt;<span class="type">Feature</span>
+  items={[
+    { icon: <span class="string">"yes"</span>, text: <span class="string">"Unlimited access"</span> },
+    { icon: <span class="string">"yes"</span>, text: <span class="string">"Priority support"</span> },
+    { icon: <span class="string">"yes"</span>, text: <span class="string">"Cloud storage"</span> },
+    { icon: <span class="string">"no"</span>, text: <span class="string">"Custom branding"</span> },
+    { icon: <span class="string">"no"</span>, text: <span class="string">"API access"</span> }
+  ]}
+/&gt;
+
+<span class="comment">// Skeleton loading (3 rows)</span>
+&lt;<span class="type">Feature</span>
+  items={[]}
+  skeleton={3}
+/&gt;</code></pre>
+        </div>
+
+        <div class="section">
+            <h2>Features</h2>
+            <ul style="margin-left: 20px;">
+                <li><strong>Yes Icon:</strong> Shows a green check-circle icon</li>
+                <li><strong>No Icon:</strong> Shows a red cancel icon</li>
+                <li><strong>Theme Colors:</strong> Uses theme.feature.yesColor and noColor</li>
+                <li><strong>Skeleton Loading:</strong> Shows animated placeholders</li>
+                <li><strong>Responsive:</strong> Uses responsive sizing for icons</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

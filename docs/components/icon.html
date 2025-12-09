@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icon - mybu-expo-ui</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px 20px; margin-bottom: 30px; }
+        header a { color: white; text-decoration: none; opacity: 0.8; }
+        header h1 { margin-top: 10px; }
+        .section { background: white; border-radius: 8px; padding: 25px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .section h2 { color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 10px; margin-bottom: 20px; }
+        pre { background: #1e1e1e; color: #d4d4d4; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 15px 0; }
+        code { font-family: 'Fira Code', Consolas, monospace; }
+        .keyword { color: #569cd6; }
+        .string { color: #ce9178; }
+        .type { color: #4ec9b0; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { border: 1px solid #e0e0e0; padding: 12px; text-align: left; }
+        th { background: #f8f9fa; font-weight: 600; }
+        .required { color: #d32f2f; font-size: 0.8rem; }
+        .optional { color: #388e3c; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html">← Back to Documentation</a>
+            <h1>Icon</h1>
+            <p>Multi-library icon component with touch support</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Import</h2>
+            <pre><code><span class="keyword">import</span> { Icon } <span class="keyword">from</span> <span class="string">'mybu-expo-ui'</span>;</code></pre>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>The Icon component provides a unified interface for multiple icon libraries from @expo/vector-icons. It supports touchable icons and skeleton loading states.</p>
+        </div>
+
+        <div class="section">
+            <h2>Props</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Prop</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>name</code></td>
+                        <td><code>string</code></td>
+                        <td><span class="required">Required</span></td>
+                        <td>The name of the icon</td>
+                    </tr>
+                    <tr>
+                        <td><code>size</code></td>
+                        <td><code>number</code></td>
+                        <td><span class="required">Required</span></td>
+                        <td>The size of the icon in pixels</td>
+                    </tr>
+                    <tr>
+                        <td><code>type</code></td>
+                        <td><code>IconType</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Icon library to use. Defaults to MaterialCommunity</td>
+                    </tr>
+                    <tr>
+                        <td><code>color</code></td>
+                        <td><code>string</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Color of the icon</td>
+                    </tr>
+                    <tr>
+                        <td><code>onPress</code></td>
+                        <td><code>() => void</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Makes the icon touchable with this callback</td>
+                    </tr>
+                    <tr>
+                        <td><code>disabled</code></td>
+                        <td><code>boolean</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Disables touch when true</td>
+                    </tr>
+                    <tr>
+                        <td><code>skeleton</code></td>
+                        <td><code>boolean</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Shows a skeleton placeholder</td>
+                    </tr>
+                    <tr>
+                        <td><code>style</code></td>
+                        <td><code>StyleProp&lt;ViewStyle&gt;</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Custom styles</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin-top: 20px;">Supported Icon Types</h3>
+            <ul style="margin-left: 20px;">
+                <li><code>MaterialCommunity</code> (default)</li>
+                <li><code>Material</code></li>
+                <li><code>Ionicons</code></li>
+                <li><code>FontAwesome</code></li>
+                <li><code>Feather</code></li>
+                <li><code>AntDesign</code></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Usage Example</h2>
+            <pre><code><span class="keyword">import</span> { Icon } <span class="keyword">from</span> <span class="string">'mybu-expo-ui'</span>;
+
+<span class="comment">// Basic icon</span>
+&lt;<span class="type">Icon</span>
+  name=<span class="string">"home"</span>
+  size={24}
+  color=<span class="string">"#333"</span>
+/&gt;
+
+<span class="comment">// Touchable icon</span>
+&lt;<span class="type">Icon</span>
+  name=<span class="string">"settings"</span>
+  size={28}
+  type=<span class="string">"MaterialCommunity"</span>
+  onPress={() => openSettings()}
+/&gt;
+
+<span class="comment">// Different icon library</span>
+&lt;<span class="type">Icon</span>
+  name=<span class="string">"heart"</span>
+  size={24}
+  type=<span class="string">"FontAwesome"</span>
+  color=<span class="string">"#E91E63"</span>
+/&gt;
+
+<span class="comment">// Feather icons</span>
+&lt;<span class="type">Icon</span>
+  name=<span class="string">"user"</span>
+  size={24}
+  type=<span class="string">"Feather"</span>
+/&gt;
+
+<span class="comment">// Skeleton loading</span>
+&lt;<span class="type">Icon</span>
+  name=<span class="string">"star"</span>
+  size={24}
+  skeleton={<span class="keyword">true</span>}
+/&gt;</code></pre>
+        </div>
+
+        <div class="section">
+            <h2>Features</h2>
+            <ul style="margin-left: 20px;">
+                <li><strong>Multiple Libraries:</strong> Support for 6 icon libraries</li>
+                <li><strong>Touchable:</strong> Becomes a button when onPress is provided</li>
+                <li><strong>Skeleton:</strong> Circular skeleton placeholder with pulse animation</li>
+                <li><strong>Disabled State:</strong> Can disable touch interactions</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

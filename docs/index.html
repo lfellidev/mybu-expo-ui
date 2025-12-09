@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mybu-expo-ui Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        .install-section {
+            background: #1e1e1e;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .install-section code {
+            background: #2d2d2d;
+            padding: 10px 20px;
+            border-radius: 4px;
+            display: block;
+            font-size: 1.1rem;
+            color: #7ee787;
+        }
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .section h2 {
+            color: #667eea;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        .card {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            padding: 15px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .card a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+        .card a:hover {
+            color: #667eea;
+        }
+        .card p {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 5px;
+        }
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+        .badge-component { background: #e3f2fd; color: #1976d2; }
+        .badge-function { background: #e8f5e9; color: #388e3c; }
+        .badge-constant { background: #fff3e0; color: #f57c00; }
+        .badge-sound { background: #fce4ec; color: #c2185b; }
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>mybu-expo-ui</h1>
+        <p>A comprehensive React Native UI component library built for Expo</p>
+    </header>
+
+    <div class="container">
+        <div class="install-section">
+            <h3 style="margin-bottom: 10px;">Installation</h3>
+            <code>npx expo install mybu-expo-ui</code>
+        </div>
+
+        <div class="section">
+            <h2>Components</h2>
+            <div class="grid">
+                <div class="card">
+                    <a href="components/alert.html">Alert <span class="badge badge-component">Component</span></a>
+                    <p>Display animated alert messages</p>
+                </div>
+                <div class="card">
+                    <a href="components/bottomsheet.html">BottomSheet <span class="badge badge-component">Component</span></a>
+                    <p>Bottom sheet modal component</p>
+                </div>
+                <div class="card">
+                    <a href="components/button.html">Button <span class="badge badge-component">Component</span></a>
+                    <p>Customizable button with ripple effect</p>
+                </div>
+                <div class="card">
+                    <a href="components/checkbox.html">Checkbox <span class="badge badge-component">Component</span></a>
+                    <p>Animated checkbox input</p>
+                </div>
+                <div class="card">
+                    <a href="components/container.html">Container <span class="badge badge-component">Component</span></a>
+                    <p>Layout container with statusbar</p>
+                </div>
+                <div class="card">
+                    <a href="components/countdown.html">Countdown <span class="badge badge-component">Component</span></a>
+                    <p>Circular countdown timer</p>
+                </div>
+                <div class="card">
+                    <a href="components/feature.html">Feature <span class="badge badge-component">Component</span></a>
+                    <p>Feature list with icons</p>
+                </div>
+                <div class="card">
+                    <a href="components/group.html">Group <span class="badge badge-component">Component</span></a>
+                    <p>Group layout with padding</p>
+                </div>
+                <div class="card">
+                    <a href="components/headermenu.html">HeaderMenu <span class="badge badge-component">Component</span></a>
+                    <p>Header navigation menu</p>
+                </div>
+                <div class="card">
+                    <a href="components/icon.html">Icon <span class="badge badge-component">Component</span></a>
+                    <p>Multi-library icon component</p>
+                </div>
+                <div class="card">
+                    <a href="components/inputspinner.html">InputSpinner <span class="badge badge-component">Component</span></a>
+                    <p>Numeric input with controls</p>
+                </div>
+                <div class="card">
+                    <a href="components/listitem.html">ListItem <span class="badge badge-component">Component</span></a>
+                    <p>List item component</p>
+                </div>
+                <div class="card">
+                    <a href="components/lottie.html">Lottie <span class="badge badge-component">Component</span></a>
+                    <p>Lottie animation player</p>
+                </div>
+                <div class="card">
+                    <a href="components/pricingcard.html">PricingCard <span class="badge badge-component">Component</span></a>
+                    <p>Pricing card display</p>
+                </div>
+                <div class="card">
+                    <a href="components/select.html">Select <span class="badge badge-component">Component</span></a>
+                    <p>Select/dropdown component</p>
+                </div>
+                <div class="card">
+                    <a href="components/skeleton.html">Skeleton <span class="badge badge-component">Component</span></a>
+                    <p>Loading skeleton placeholder</p>
+                </div>
+                <div class="card">
+                    <a href="components/switch.html">Switch <span class="badge badge-component">Component</span></a>
+                    <p>Toggle switch component</p>
+                </div>
+                <div class="card">
+                    <a href="components/text.html">Text <span class="badge badge-component">Component</span></a>
+                    <p>Styled text with fonts</p>
+                </div>
+                <div class="card">
+                    <a href="components/textarea.html">TextArea <span class="badge badge-component">Component</span></a>
+                    <p>Multi-line text input</p>
+                </div>
+                <div class="card">
+                    <a href="components/textinput.html">TextInput <span class="badge badge-component">Component</span></a>
+                    <p>Single-line text input</p>
+                </div>
+                <div class="card">
+                    <a href="components/update.html">Update <span class="badge badge-component">Component</span></a>
+                    <p>App update checker</p>
+                </div>
+                <div class="card">
+                    <a href="components/themeprovider.html">ThemeProvider <span class="badge badge-component">Component</span></a>
+                    <p>Theme context provider</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Controllers (Functions)</h2>
+            
+            <h3 style="margin: 20px 0 15px; color: #388e3c;">Utility Functions</h3>
+            <div class="grid">
+                <div class="card">
+                    <a href="functions/capitalize.html">capitalize <span class="badge badge-function">Function</span></a>
+                    <p>Capitalize first letter</p>
+                </div>
+                <div class="card">
+                    <a href="functions/formattime.html">formatTime <span class="badge badge-function">Function</span></a>
+                    <p>Format seconds to mm:ss</p>
+                </div>
+                <div class="card">
+                    <a href="functions/generateid.html">generateID <span class="badge badge-function">Function</span></a>
+                    <p>Generate unique IDs</p>
+                </div>
+                <div class="card">
+                    <a href="functions/reload.html">reload <span class="badge badge-function">Function</span></a>
+                    <p>Reload the application</p>
+                </div>
+                <div class="card">
+                    <a href="functions/setfontscale.html">setFontScale <span class="badge badge-function">Function</span></a>
+                    <p>Set responsive font scale</p>
+                </div>
+                <div class="card">
+                    <a href="functions/setlowercase.html">setLowerCase <span class="badge badge-function">Function</span></a>
+                    <p>Convert to lowercase</p>
+                </div>
+                <div class="card">
+                    <a href="functions/setporcentageheight.html">setPorcentageHeight <span class="badge badge-function">Function</span></a>
+                    <p>Set percentage-based height</p>
+                </div>
+                <div class="card">
+                    <a href="functions/setporcentagewidth.html">setPorcentageWidth <span class="badge badge-function">Function</span></a>
+                    <p>Set percentage-based width</p>
+                </div>
+                <div class="card">
+                    <a href="functions/setresponsivesize.html">setResponsiveSize <span class="badge badge-function">Function</span></a>
+                    <p>Set responsive sizes</p>
+                </div>
+                <div class="card">
+                    <a href="functions/shuffle.html">shuffle <span class="badge badge-function">Function</span></a>
+                    <p>Shuffle array elements</p>
+                </div>
+                <div class="card">
+                    <a href="functions/shuffleint.html">shuffleInt <span class="badge badge-function">Function</span></a>
+                    <p>Generate random integer</p>
+                </div>
+                <div class="card">
+                    <a href="functions/sortarray.html">sortArray <span class="badge badge-function">Function</span></a>
+                    <p>Sort array elements</p>
+                </div>
+                <div class="card">
+                    <a href="functions/strtoboolean.html">strToBoolean <span class="badge badge-function">Function</span></a>
+                    <p>Convert string to boolean</p>
+                </div>
+                <div class="card">
+                    <a href="functions/useisemulator.html">useIsEmulator <span class="badge badge-function">Function</span></a>
+                    <p>Detect emulator</p>
+                </div>
+                <div class="card">
+                    <a href="functions/gotostore.html">goToStore <span class="badge badge-function">Function</span></a>
+                    <p>Navigate to app store</p>
+                </div>
+            </div>
+
+            <h3 style="margin: 30px 0 15px; color: #388e3c;">Remote Functions</h3>
+            <div class="grid">
+                <div class="card">
+                    <a href="functions/login.html">login <span class="badge badge-function">Function</span></a>
+                    <p>User authentication</p>
+                </div>
+                <div class="card">
+                    <a href="functions/signup.html">signup <span class="badge badge-function">Function</span></a>
+                    <p>User registration</p>
+                </div>
+                <div class="card">
+                    <a href="functions/getremoteconfig.html">getRemoteConfig <span class="badge badge-function">Function</span></a>
+                    <p>Fetch remote configuration</p>
+                </div>
+                <div class="card">
+                    <a href="functions/requestnewcode.html">requestNewCode <span class="badge badge-function">Function</span></a>
+                    <p>Request verification code</p>
+                </div>
+                <div class="card">
+                    <a href="functions/verifycode.html">verifyCode <span class="badge badge-function">Function</span></a>
+                    <p>Verify authentication code</p>
+                </div>
+                <div class="card">
+                    <a href="functions/verifytoken.html">verifyToken <span class="badge badge-function">Function</span></a>
+                    <p>Verify authentication token</p>
+                </div>
+                <div class="card">
+                    <a href="functions/verifycoupon.html">verifyCoupon <span class="badge badge-function">Function</span></a>
+                    <p>Verify coupon code</p>
+                </div>
+                <div class="card">
+                    <a href="functions/getsupport.html">getSupport <span class="badge badge-function">Function</span></a>
+                    <p>Send support request</p>
+                </div>
+                <div class="card">
+                    <a href="functions/resetpassword.html">resetPassword <span class="badge badge-function">Function</span></a>
+                    <p>Request password reset</p>
+                </div>
+                <div class="card">
+                    <a href="functions/resetpasswordverify.html">resetPasswordVerify <span class="badge badge-function">Function</span></a>
+                    <p>Verify password reset</p>
+                </div>
+                <div class="card">
+                    <a href="functions/updateemail.html">updateEmail <span class="badge badge-function">Function</span></a>
+                    <p>Update user email</p>
+                </div>
+                <div class="card">
+                    <a href="functions/updateemailverify.html">updateEmailVerify <span class="badge badge-function">Function</span></a>
+                    <p>Verify email update</p>
+                </div>
+                <div class="card">
+                    <a href="functions/updatepassword.html">updatePassword <span class="badge badge-function">Function</span></a>
+                    <p>Update user password</p>
+                </div>
+                <div class="card">
+                    <a href="functions/updateprofile.html">updateProfile <span class="badge badge-function">Function</span></a>
+                    <p>Update user profile</p>
+                </div>
+                <div class="card">
+                    <a href="functions/deleteaccount.html">deleteAccount <span class="badge badge-function">Function</span></a>
+                    <p>Delete user account</p>
+                </div>
+            </div>
+
+            <h3 style="margin: 30px 0 15px; color: #388e3c;">Custom Storage Functions</h3>
+            <div class="grid">
+                <div class="card">
+                    <a href="functions/setvalue.html">setValue <span class="badge badge-function">Function</span></a>
+                    <p>Store a custom value</p>
+                </div>
+                <div class="card">
+                    <a href="functions/getvalue.html">getValue <span class="badge badge-function">Function</span></a>
+                    <p>Retrieve a custom value</p>
+                </div>
+                <div class="card">
+                    <a href="functions/deletevalue.html">deleteValue <span class="badge badge-function">Function</span></a>
+                    <p>Delete a custom value</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Vars (Constants)</h2>
+            <div class="grid">
+                <div class="card">
+                    <a href="constants/colors.html">colors <span class="badge badge-constant">Constant</span></a>
+                    <p>Color palette</p>
+                </div>
+                <div class="card">
+                    <a href="constants/applicationdata.html">applicationData <span class="badge badge-constant">Constant</span></a>
+                    <p>Application information</p>
+                </div>
+                <div class="card">
+                    <a href="constants/constantsdata.html">constantsData <span class="badge badge-constant">Constant</span></a>
+                    <p>Expo constants</p>
+                </div>
+                <div class="card">
+                    <a href="constants/devicedata.html">deviceData <span class="badge badge-constant">Constant</span></a>
+                    <p>Device information</p>
+                </div>
+                <div class="card">
+                    <a href="constants/appstoredata.html">appStoreData <span class="badge badge-constant">Constant</span></a>
+                    <p>App store URLs</p>
+                </div>
+                <div class="card">
+                    <a href="constants/statusbarheight.html">statusbarHeight <span class="badge badge-constant">Constant</span></a>
+                    <p>Status bar height</p>
+                </div>
+                <div class="card">
+                    <a href="constants/devicelanguage.html">deviceLanguage <span class="badge badge-constant">Constant</span></a>
+                    <p>Device language tag</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Sounds</h2>
+            <div class="grid">
+                <div class="card">
+                    <a href="sounds/beepsound.html">beepSound <span class="badge badge-sound">Sound</span></a>
+                    <p>Beep notification sound</p>
+                </div>
+                <div class="card">
+                    <a href="sounds/clicksound.html">clickSound <span class="badge badge-sound">Sound</span></a>
+                    <p>Click interaction sound</p>
+                </div>
+                <div class="card">
+                    <a href="sounds/purchased.html">purchased <span class="badge badge-sound">Sound</span></a>
+                    <p>Purchase confirmation sound</p>
+                </div>
+                <div class="card">
+                    <a href="sounds/sentsound.html">sentSound <span class="badge badge-sound">Sound</span></a>
+                    <p>Message sent sound</p>
+                </div>
+                <div class="card">
+                    <a href="sounds/tintinsound.html">tintinSound <span class="badge badge-sound">Sound</span></a>
+                    <p>Tintin notification sound</p>
+                </div>
+                <div class="card">
+                    <a href="sounds/unlocksound.html">unlockSound <span class="badge badge-sound">Sound</span></a>
+                    <p>Unlock action sound</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>mybu-expo-ui v0.1.7 &copy; 2025</p>
+    </footer>
+</body>
+</html>

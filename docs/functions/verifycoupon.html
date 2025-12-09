@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>verifyCoupon - mybu-expo-ui</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 30px 20px; margin-bottom: 30px; }
+        header a { color: white; text-decoration: none; opacity: 0.8; }
+        header h1 { margin-top: 10px; }
+        .section { background: white; border-radius: 8px; padding: 25px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .section h2 { color: #f5576c; border-bottom: 2px solid #f5576c; padding-bottom: 10px; margin-bottom: 20px; }
+        pre { background: #1e1e1e; color: #d4d4d4; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 15px 0; }
+        code { font-family: 'Fira Code', Consolas, monospace; }
+        .keyword { color: #569cd6; }
+        .string { color: #ce9178; }
+        .type { color: #4ec9b0; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { border: 1px solid #e0e0e0; padding: 12px; text-align: left; }
+        th { background: #f8f9fa; font-weight: 600; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html">← Back to Documentation</a>
+            <h1>verifyCoupon</h1>
+            <p>Coupon validation function</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Import</h2>
+            <pre><code><span class="keyword">import</span> { verifyCoupon } <span class="keyword">from</span> <span class="string">'mybu-expo-ui'</span>;</code></pre>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Validates a coupon or promo code against the server. Returns discount information if valid.</p>
+        </div>
+
+        <div class="section">
+            <h2>Signature</h2>
+            <pre><code><span class="keyword">async function</span> verifyCoupon(
+  apiUrl: <span class="type">string</span>,
+  code: <span class="type">string</span>,
+  token: <span class="type">string</span>,
+  onSuccess: (data: <span class="type">any</span>) => <span class="type">void</span>,
+  onError: (error: <span class="type">any</span>) => <span class="type">void</span>
+): <span class="type">Promise&lt;void&gt;</span></code></pre>
+        </div>
+
+        <div class="section">
+            <h2>Parameters</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>apiUrl</code></td>
+                        <td><code>string</code></td>
+                        <td>The API URL</td>
+                    </tr>
+                    <tr>
+                        <td><code>code</code></td>
+                        <td><code>string</code></td>
+                        <td>Coupon/promo code</td>
+                    </tr>
+                    <tr>
+                        <td><code>token</code></td>
+                        <td><code>string</code></td>
+                        <td>User's auth token</td>
+                    </tr>
+                    <tr>
+                        <td><code>onSuccess</code></td>
+                        <td><code>(data) => void</code></td>
+                        <td>Called with discount data</td>
+                    </tr>
+                    <tr>
+                        <td><code>onError</code></td>
+                        <td><code>(error) => void</code></td>
+                        <td>Called if invalid</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Usage Example</h2>
+            <pre><code><span class="keyword">import</span> { verifyCoupon } <span class="keyword">from</span> <span class="string">'mybu-expo-ui'</span>;
+
+<span class="keyword">const</span> applyCoupon = <span class="keyword">async</span> () => {
+  <span class="keyword">await</span> verifyCoupon(
+    <span class="string">'https://api.example.com'</span>,
+    couponCode,
+    authToken,
+    (discount) => setDiscount(discount.percentage),
+    () => setError(<span class="string">'Invalid coupon'</span>)
+  );
+};</code></pre>
+        </div>
+    </div>
+</body>
+</html>

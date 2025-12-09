@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Container - mybu-expo-ui</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px 20px; margin-bottom: 30px; }
+        header a { color: white; text-decoration: none; opacity: 0.8; }
+        header h1 { margin-top: 10px; }
+        .section { background: white; border-radius: 8px; padding: 25px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .section h2 { color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 10px; margin-bottom: 20px; }
+        pre { background: #1e1e1e; color: #d4d4d4; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 15px 0; }
+        code { font-family: 'Fira Code', Consolas, monospace; }
+        .keyword { color: #569cd6; }
+        .string { color: #ce9178; }
+        .type { color: #4ec9b0; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { border: 1px solid #e0e0e0; padding: 12px; text-align: left; }
+        th { background: #f8f9fa; font-weight: 600; }
+        .required { color: #d32f2f; font-size: 0.8rem; }
+        .optional { color: #388e3c; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html">← Back to Documentation</a>
+            <h1>Container</h1>
+            <p>Layout container with statusbar, header, alert, and bottom sheet support</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Import</h2>
+            <pre><code><span class="keyword">import</span> { Container } <span class="keyword">from</span> <span class="string">'mybu-expo-ui'</span>;</code></pre>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>The Container component is a comprehensive layout wrapper that provides status bar configuration, header menu, alert system, bottom sheet modals, keyboard avoiding behavior, and optional scrolling. It's designed to be the root container for your screens.</p>
+        </div>
+
+        <div class="section">
+            <h2>Props</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Prop</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>children</code></td>
+                        <td><code>React.ReactNode</code></td>
+                        <td><span class="required">Required</span></td>
+                        <td>Content to render inside the container</td>
+                    </tr>
+                    <tr>
+                        <td><code>statusbar</code></td>
+                        <td><code>boolean</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Whether to show the status bar</td>
+                    </tr>
+                    <tr>
+                        <td><code>scrollable</code></td>
+                        <td><code>boolean</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Makes the content scrollable</td>
+                    </tr>
+                    <tr>
+                        <td><code>noBackHandler</code></td>
+                        <td><code>boolean</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Disables the hardware back button on Android</td>
+                    </tr>
+                    <tr>
+                        <td><code>header</code></td>
+                        <td><code>HeaderProps</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Header menu configuration</td>
+                    </tr>
+                    <tr>
+                        <td><code>alert</code></td>
+                        <td><code>AlertProps</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Alert configuration</td>
+                    </tr>
+                    <tr>
+                        <td><code>bottomSheet</code></td>
+                        <td><code>BottomSheetProps</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Bottom sheet configuration</td>
+                    </tr>
+                    <tr>
+                        <td><code>modal</code></td>
+                        <td><code>React.ReactNode</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Custom modal component</td>
+                    </tr>
+                    <tr>
+                        <td><code>style</code></td>
+                        <td><code>StyleProp&lt;ViewStyle&gt;</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Custom styles for the container</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Usage Example</h2>
+            <pre><code><span class="keyword">import</span> React, { useState } <span class="keyword">from</span> <span class="string">'react'</span>;
+<span class="keyword">import</span> { Container, Text, Button } <span class="keyword">from</span> <span class="string">'mybu-expo-ui'</span>;
+
+<span class="keyword">const</span> MyScreen = () => {
+  <span class="keyword">const</span> [showAlert, setShowAlert] = useState(<span class="keyword">false</span>);
+
+  <span class="keyword">return</span> (
+    &lt;<span class="type">Container</span>
+      statusbar
+      scrollable
+      header={{
+        title: <span class="string">"My Screen"</span>,
+        onPress: () => navigation.goBack()
+      }}
+      alert={{
+        type: <span class="string">"success"</span>,
+        visible: showAlert,
+        text: <span class="string">"Operation successful!"</span>
+      }}
+    &gt;
+      &lt;<span class="type">Text</span>&gt;Your content here&lt;/<span class="type">Text</span>&gt;
+      &lt;<span class="type">Button</span>
+        label=<span class="string">"Show Alert"</span>
+        onPress={() => setShowAlert(<span class="keyword">true</span>)}
+      /&gt;
+    &lt;/<span class="type">Container</span>&gt;
+  );
+};</code></pre>
+        </div>
+
+        <div class="section">
+            <h2>Features</h2>
+            <ul style="margin-left: 20px;">
+                <li><strong>StatusBar:</strong> Automatic status bar styling based on theme</li>
+                <li><strong>KeyboardAvoidingView:</strong> Built-in keyboard handling for iOS</li>
+                <li><strong>ScrollView:</strong> Optional scrollable content with bottom padding</li>
+                <li><strong>Header Menu:</strong> Integrated header with back button</li>
+                <li><strong>Alert System:</strong> Built-in alert component support</li>
+                <li><strong>Bottom Sheet:</strong> Integrated bottom sheet modal</li>
+                <li><strong>Back Handler:</strong> Control Android hardware back button</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

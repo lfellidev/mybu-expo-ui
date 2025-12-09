@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThemeProvider - mybu-expo-ui</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px 20px; margin-bottom: 30px; }
+        header a { color: white; text-decoration: none; opacity: 0.8; }
+        header h1 { margin-top: 10px; }
+        .section { background: white; border-radius: 8px; padding: 25px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .section h2 { color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 10px; margin-bottom: 20px; }
+        pre { background: #1e1e1e; color: #d4d4d4; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 15px 0; }
+        code { font-family: 'Fira Code', Consolas, monospace; }
+        .keyword { color: #569cd6; }
+        .string { color: #ce9178; }
+        .type { color: #4ec9b0; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { border: 1px solid #e0e0e0; padding: 12px; text-align: left; }
+        th { background: #f8f9fa; font-weight: 600; }
+        .required { color: #d32f2f; font-size: 0.8rem; }
+        .optional { color: #388e3c; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html">← Back to Documentation</a>
+            <h1>ThemeProvider</h1>
+            <p>Theme context provider for consistent styling</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Import</h2>
+            <pre><code><span class="keyword">import</span> { ThemeProvider, useTheme } <span class="keyword">from</span> <span class="string">'mybu-expo-ui'</span>;</code></pre>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>The ThemeProvider component provides a React context for theming throughout your app. It allows you to define colors, fonts, and other styling properties that all mybu-expo-ui components will use.</p>
+        </div>
+
+        <div class="section">
+            <h2>Theme Props</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Prop</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>children</code></td>
+                        <td><code>React.ReactNode</code></td>
+                        <td><span class="required">Required</span></td>
+                        <td>Child components</td>
+                    </tr>
+                    <tr>
+                        <td><code>theme</code></td>
+                        <td><code>ThemeProps</code></td>
+                        <td><span class="required">Required</span></td>
+                        <td>Theme configuration object</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin-top: 20px;">ThemeProps Structure</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>primary</code></td>
+                        <td><code>string</code></td>
+                        <td>Primary brand color</td>
+                    </tr>
+                    <tr>
+                        <td><code>secondary</code></td>
+                        <td><code>string</code></td>
+                        <td>Secondary brand color</td>
+                    </tr>
+                    <tr>
+                        <td><code>error</code></td>
+                        <td><code>string</code></td>
+                        <td>Error/danger color</td>
+                    </tr>
+                    <tr>
+                        <td><code>text</code></td>
+                        <td><code>TextTheme</code></td>
+                        <td>Text styling configuration</td>
+                    </tr>
+                    <tr>
+                        <td><code>input</code></td>
+                        <td><code>InputTheme</code></td>
+                        <td>Input field styling</td>
+                    </tr>
+                    <tr>
+                        <td><code>switch</code></td>
+                        <td><code>SwitchTheme</code></td>
+                        <td>Switch component styling</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Usage Example</h2>
+            <pre><code><span class="keyword">import</span> { ThemeProvider, useTheme } <span class="keyword">from</span> <span class="string">'mybu-expo-ui'</span>;
+
+<span class="comment">// Define your theme</span>
+<span class="keyword">const</span> myTheme = {
+  primary: <span class="string">'#667eea'</span>,
+  secondary: <span class="string">'#764ba2'</span>,
+  error: <span class="string">'#d32f2f'</span>,
+  text: {
+    family: <span class="string">'poppins'</span>,
+    weight: 400,
+    color: <span class="string">'#333333'</span>,
+  },
+  input: {
+    backgroundColor: <span class="string">'#f5f5f5'</span>,
+    borderColor: <span class="string">'#e0e0e0'</span>,
+    focusBorderColor: <span class="string">'#667eea'</span>,
+    textColor: <span class="string">'#333333'</span>,
+    placeholderColor: <span class="string">'#999999'</span>,
+  },
+  switch: {
+    trackColorFalse: <span class="string">'#ccc'</span>,
+    trackColorTrue: <span class="string">'#667eea'</span>,
+  }
+};
+
+<span class="comment">// Wrap your app</span>
+<span class="keyword">export default function</span> App() {
+  <span class="keyword">return</span> (
+    &lt;<span class="type">ThemeProvider</span> theme={myTheme}&gt;
+      &lt;<span class="type">MyApp</span> /&gt;
+    &lt;/<span class="type">ThemeProvider</span>&gt;
+  );
+}
+
+<span class="comment">// Use theme in components</span>
+<span class="keyword">function</span> MyComponent() {
+  <span class="keyword">const</span> theme = useTheme();
+
+  <span class="keyword">return</span> (
+    &lt;<span class="type">View</span> style={{ backgroundColor: theme.primary }}&gt;
+      &lt;<span class="type">Text</span> style={{ color: theme.text.color }}&gt;
+        Themed content
+      &lt;/<span class="type">Text</span>&gt;
+    &lt;/<span class="type">View</span>&gt;
+  );
+}</code></pre>
+        </div>
+
+        <div class="section">
+            <h2>useTheme Hook</h2>
+            <p>Access the current theme from any component using the <code>useTheme</code> hook:</p>
+            <pre><code><span class="keyword">import</span> { useTheme } <span class="keyword">from</span> <span class="string">'mybu-expo-ui'</span>;
+
+<span class="keyword">function</span> MyComponent() {
+  <span class="keyword">const</span> theme = useTheme();
+
+  <span class="keyword">return</span> (
+    &lt;<span class="type">Button</span>
+      backgroundColor={theme.primary}
+      textColor={theme.text.color}
+    &gt;
+      Themed Button
+    &lt;/<span class="type">Button</span>&gt;
+  );
+}</code></pre>
+        </div>
+
+        <div class="section">
+            <h2>Features</h2>
+            <ul style="margin-left: 20px;">
+                <li><strong>Centralized Styling:</strong> Define theme once, use everywhere</li>
+                <li><strong>Type Safe:</strong> Full TypeScript support</li>
+                <li><strong>Font Support:</strong> Configure default font family and weight</li>
+                <li><strong>Input Theming:</strong> Consistent input field styling</li>
+                <li><strong>Switch Theming:</strong> Custom switch colors</li>
+                <li><strong>Easy Access:</strong> useTheme hook for any component</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

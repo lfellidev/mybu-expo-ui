@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert - mybu-expo-ui</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px 20px; margin-bottom: 30px; }
+        header a { color: white; text-decoration: none; opacity: 0.8; }
+        header a:hover { opacity: 1; }
+        header h1 { margin-top: 10px; }
+        .section { background: white; border-radius: 8px; padding: 25px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .section h2 { color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 10px; margin-bottom: 20px; }
+        pre { background: #1e1e1e; color: #d4d4d4; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 15px 0; }
+        code { font-family: 'Fira Code', Consolas, monospace; }
+        .keyword { color: #569cd6; }
+        .string { color: #ce9178; }
+        .comment { color: #6a9955; }
+        .type { color: #4ec9b0; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { border: 1px solid #e0e0e0; padding: 12px; text-align: left; }
+        th { background: #f8f9fa; font-weight: 600; }
+        .required { color: #d32f2f; font-size: 0.8rem; }
+        .optional { color: #388e3c; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html">← Back to Documentation</a>
+            <h1>Alert</h1>
+            <p>Display animated alert messages at the top of the screen</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Import</h2>
+            <pre><code><span class="keyword">import</span> { Alert } <span class="keyword">from</span> <span class="string">'mybu-expo-ui'</span>;</code></pre>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>The Alert component displays animated alert messages that slide in from the top of the screen. It automatically dismisses after 5 seconds and supports three different types: success, danger, and info.</p>
+        </div>
+
+        <div class="section">
+            <h2>Props</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Prop</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>text</code></td>
+                        <td><code>string</code></td>
+                        <td><span class="required">Required</span></td>
+                        <td>The message text to display in the alert</td>
+                    </tr>
+                    <tr>
+                        <td><code>visible</code></td>
+                        <td><code>boolean</code></td>
+                        <td><span class="required">Required</span></td>
+                        <td>Controls whether the alert is visible</td>
+                    </tr>
+                    <tr>
+                        <td><code>type</code></td>
+                        <td><code>'success' | 'danger' | 'info'</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>The type of alert which determines the color scheme. Defaults to 'info'</td>
+                    </tr>
+                    <tr>
+                        <td><code>style</code></td>
+                        <td><code>StyleProp&lt;ViewStyle&gt;</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Custom styles to apply to the alert container</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Usage Example</h2>
+            <pre><code><span class="keyword">import</span> React, { useState } <span class="keyword">from</span> <span class="string">'react'</span>;
+<span class="keyword">import</span> { Alert, Button } <span class="keyword">from</span> <span class="string">'mybu-expo-ui'</span>;
+
+<span class="keyword">const</span> MyComponent = () => {
+  <span class="keyword">const</span> [showAlert, setShowAlert] = useState(<span class="keyword">false</span>);
+
+  <span class="keyword">return</span> (
+    &lt;&gt;
+      &lt;<span class="type">Alert</span>
+        text=<span class="string">"Operation completed successfully!"</span>
+        type=<span class="string">"success"</span>
+        visible={showAlert}
+      /&gt;
+      &lt;<span class="type">Button</span>
+        label=<span class="string">"Show Alert"</span>
+        onPress={() => setShowAlert(<span class="keyword">true</span>)}
+      /&gt;
+    &lt;/&gt;
+  );
+};</code></pre>
+        </div>
+
+        <div class="section">
+            <h2>Behavior</h2>
+            <ul style="margin-left: 20px;">
+                <li>Slides in from top with a 500ms animation when <code>visible</code> becomes true</li>
+                <li>Automatically slides out after 5 seconds</li>
+                <li>Uses theme colors based on the <code>type</code> prop</li>
+                <li>Positioned absolutely at the top of the screen with z-index 999</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

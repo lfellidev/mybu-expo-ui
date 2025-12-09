@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colors - mybu-expo-ui</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white; padding: 30px 20px; margin-bottom: 30px; }
+        header a { color: white; text-decoration: none; opacity: 0.8; }
+        header h1 { margin-top: 10px; }
+        .section { background: white; border-radius: 8px; padding: 25px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .section h2 { color: #fa709a; border-bottom: 2px solid #fa709a; padding-bottom: 10px; margin-bottom: 20px; }
+        pre { background: #1e1e1e; color: #d4d4d4; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 15px 0; }
+        code { font-family: 'Fira Code', Consolas, monospace; }
+        .keyword { color: #569cd6; }
+        .string { color: #ce9178; }
+        .type { color: #4ec9b0; }
+        .color-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; margin-top: 15px; }
+        .color-item { padding: 15px; border-radius: 8px; text-align: center; color: white; font-weight: 500; text-shadow: 0 1px 2px rgba(0,0,0,0.3); }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html">← Back to Documentation</a>
+            <h1>Colors</h1>
+            <p>Color palette constants</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Import</h2>
+            <pre><code><span class="keyword">import</span> { Colors } <span class="keyword">from</span> <span class="string">'mybu-expo-ui'</span>;</code></pre>
+        </div>
+
+        <div class="section">
+            <h2">Description</h2>
+            <p>A collection of pre-defined color palettes for consistent styling across your app. Includes primary colors, neutrals, and status colors.</p>
+        </div>
+
+        <div class="section">
+            <h2>Usage Example</h2>
+            <pre><code><span class="keyword">import</span> { Colors } <span class="keyword">from</span> <span class="string">'mybu-expo-ui'</span>;
+
+<span class="comment">// Access color palettes</span>
+<span class="keyword">const</span> primaryColor = Colors.primary;
+<span class="keyword">const</span> backgroundColor = Colors.background;
+<span class="keyword">const</span> textColor = Colors.text;
+
+<span class="comment">// Use in styles</span>
+&lt;<span class="type">View</span> style={{ backgroundColor: Colors.primary }}&gt;
+  &lt;<span class="type">Text</span> style={{ color: Colors.text }}&gt;
+    Styled text
+  &lt;/<span class="type">Text</span>&gt;
+&lt;/<span class="type">View</span>&gt;</code></pre>
+        </div>
+
+        <div class="section">
+            <h2>Available Colors</h2>
+            <p>The Colors object contains multiple color palettes that can be used throughout your application for consistent theming.</p>
+            <div class="color-grid">
+                <div class="color-item" style="background: #667eea;">Primary</div>
+                <div class="color-item" style="background: #764ba2;">Secondary</div>
+                <div class="color-item" style="background: #4CAF50;">Success</div>
+                <div class="color-item" style="background: #f44336;">Error</div>
+                <div class="color-item" style="background: #ff9800;">Warning</div>
+                <div class="color-item" style="background: #2196F3;">Info</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

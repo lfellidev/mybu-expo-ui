@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TextInput - mybu-expo-ui</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px 20px; margin-bottom: 30px; }
+        header a { color: white; text-decoration: none; opacity: 0.8; }
+        header h1 { margin-top: 10px; }
+        .section { background: white; border-radius: 8px; padding: 25px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .section h2 { color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 10px; margin-bottom: 20px; }
+        pre { background: #1e1e1e; color: #d4d4d4; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 15px 0; }
+        code { font-family: 'Fira Code', Consolas, monospace; }
+        .keyword { color: #569cd6; }
+        .string { color: #ce9178; }
+        .type { color: #4ec9b0; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { border: 1px solid #e0e0e0; padding: 12px; text-align: left; }
+        th { background: #f8f9fa; font-weight: 600; }
+        .required { color: #d32f2f; font-size: 0.8rem; }
+        .optional { color: #388e3c; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html">← Back to Documentation</a>
+            <h1>TextInput</h1>
+            <p>Single-line text input component</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Import</h2>
+            <pre><code><span class="keyword">import</span> { TextInput } <span class="keyword">from</span> <span class="string">'mybu-expo-ui'</span>;</code></pre>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>The TextInput component provides a styled single-line input with label, icons, error states, password toggle, and skeleton loading. It supports various keyboard types and auto-complete options.</p>
+        </div>
+
+        <div class="section">
+            <h2>Props</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Prop</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>value</code></td>
+                        <td><code>string</code></td>
+                        <td><span class="required">Required</span></td>
+                        <td>Current input value</td>
+                    </tr>
+                    <tr>
+                        <td><code>onChangeText</code></td>
+                        <td><code>(text: string) => void</code></td>
+                        <td><span class="required">Required</span></td>
+                        <td>Callback when text changes</td>
+                    </tr>
+                    <tr>
+                        <td><code>label</code></td>
+                        <td><code>string</code></td>
+                        <td><span class="required">Required</span></td>
+                        <td>Label text for the input</td>
+                    </tr>
+                    <tr>
+                        <td><code>showLabel</code></td>
+                        <td><code>boolean</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Whether to display the label</td>
+                    </tr>
+                    <tr>
+                        <td><code>placeholder</code></td>
+                        <td><code>string</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Placeholder text</td>
+                    </tr>
+                    <tr>
+                        <td><code>leftIcon</code></td>
+                        <td><code>React.ReactNode</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Icon on the left side</td>
+                    </tr>
+                    <tr>
+                        <td><code>rightIcon</code></td>
+                        <td><code>React.ReactNode</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Icon on the right side</td>
+                    </tr>
+                    <tr>
+                        <td><code>secureTextEntry</code></td>
+                        <td><code>boolean</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Enables password mode</td>
+                    </tr>
+                    <tr>
+                        <td><code>keyboardType</code></td>
+                        <td><code>KeyboardTypeOptions</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Keyboard type (numeric, email, etc.)</td>
+                    </tr>
+                    <tr>
+                        <td><code>autoCapitalize</code></td>
+                        <td><code>'none' | 'sentences' | 'words' | 'characters'</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Auto-capitalization behavior</td>
+                    </tr>
+                    <tr>
+                        <td><code>autoComplete</code></td>
+                        <td><code>string</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Auto-complete type</td>
+                    </tr>
+                    <tr>
+                        <td><code>maxLength</code></td>
+                        <td><code>number</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Maximum character limit</td>
+                    </tr>
+                    <tr>
+                        <td><code>required</code></td>
+                        <td><code>boolean</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Marks field as required</td>
+                    </tr>
+                    <tr>
+                        <td><code>errorMessage</code></td>
+                        <td><code>string</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Error message to display</td>
+                    </tr>
+                    <tr>
+                        <td><code>disabled</code></td>
+                        <td><code>boolean</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Disables the input</td>
+                    </tr>
+                    <tr>
+                        <td><code>skeleton</code></td>
+                        <td><code>boolean</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Shows skeleton loading state</td>
+                    </tr>
+                    <tr>
+                        <td><code>onFocus</code></td>
+                        <td><code>() => void</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Callback when input is focused</td>
+                    </tr>
+                    <tr>
+                        <td><code>onBlur</code></td>
+                        <td><code>() => void</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Callback when input loses focus</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Usage Example</h2>
+            <pre><code><span class="keyword">import</span> React, { useState } <span class="keyword">from</span> <span class="string">'react'</span>;
+<span class="keyword">import</span> { TextInput, Icon } <span class="keyword">from</span> <span class="string">'mybu-expo-ui'</span>;
+
+<span class="keyword">const</span> MyComponent = () => {
+  <span class="keyword">const</span> [email, setEmail] = useState(<span class="string">''</span>);
+  <span class="keyword">const</span> [password, setPassword] = useState(<span class="string">''</span>);
+
+  <span class="keyword">return</span> (
+    &lt;&gt;
+      &lt;<span class="type">TextInput</span>
+        label=<span class="string">"Email"</span>
+        showLabel
+        value={email}
+        onChangeText={setEmail}
+        placeholder=<span class="string">"Enter your email"</span>
+        keyboardType=<span class="string">"email-address"</span>
+        autoCapitalize=<span class="string">"none"</span>
+        autoComplete=<span class="string">"email"</span>
+        leftIcon={&lt;<span class="type">Icon</span> name=<span class="string">"mail"</span> /&gt;}
+      /&gt;
+
+      &lt;<span class="type">TextInput</span>
+        label=<span class="string">"Password"</span>
+        showLabel
+        value={password}
+        onChangeText={setPassword}
+        placeholder=<span class="string">"Enter your password"</span>
+        secureTextEntry
+        autoComplete=<span class="string">"password"</span>
+        leftIcon={&lt;<span class="type">Icon</span> name=<span class="string">"lock"</span> /&gt;}
+      /&gt;
+    &lt;/&gt;
+  );
+};
+
+<span class="comment">// With validation</span>
+&lt;<span class="type">TextInput</span>
+  label=<span class="string">"Username"</span>
+  showLabel
+  required
+  value={username}
+  onChangeText={setUsername}
+  errorMessage={!username ? <span class="string">"Username is required"</span> : <span class="keyword">undefined</span>}
+/&gt;
+
+<span class="comment">// Phone number input</span>
+&lt;<span class="type">TextInput</span>
+  label=<span class="string">"Phone"</span>
+  showLabel
+  value={phone}
+  onChangeText={setPhone}
+  keyboardType=<span class="string">"phone-pad"</span>
+  maxLength={15}
+/&gt;</code></pre>
+        </div>
+
+        <div class="section">
+            <h2>Features</h2>
+            <ul style="margin-left: 20px;">
+                <li><strong>Icon Support:</strong> Left and right icons</li>
+                <li><strong>Password Mode:</strong> Secure text entry with toggle</li>
+                <li><strong>Focus States:</strong> Visual feedback when focused</li>
+                <li><strong>Error Display:</strong> Red border and error message</li>
+                <li><strong>Keyboard Types:</strong> Numeric, email, phone, etc.</li>
+                <li><strong>Skeleton Loading:</strong> Pulsing placeholder</li>
+                <li><strong>Theme Integration:</strong> Theme colors and styling</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

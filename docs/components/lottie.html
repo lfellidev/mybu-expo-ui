@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottie - mybu-expo-ui</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px 20px; margin-bottom: 30px; }
+        header a { color: white; text-decoration: none; opacity: 0.8; }
+        header h1 { margin-top: 10px; }
+        .section { background: white; border-radius: 8px; padding: 25px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .section h2 { color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 10px; margin-bottom: 20px; }
+        pre { background: #1e1e1e; color: #d4d4d4; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 15px 0; }
+        code { font-family: 'Fira Code', Consolas, monospace; }
+        .keyword { color: #569cd6; }
+        .string { color: #ce9178; }
+        .type { color: #4ec9b0; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { border: 1px solid #e0e0e0; padding: 12px; text-align: left; }
+        th { background: #f8f9fa; font-weight: 600; }
+        .required { color: #d32f2f; font-size: 0.8rem; }
+        .optional { color: #388e3c; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html">← Back to Documentation</a>
+            <h1>Lottie</h1>
+            <p>Lottie animation player with built-in animations</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Import</h2>
+            <pre><code><span class="keyword">import</span> { Lottie } <span class="keyword">from</span> <span class="string">'mybu-expo-ui'</span>;</code></pre>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>The Lottie component plays Lottie animations using lottie-react-native. It includes a library of built-in animations and also supports custom animation files.</p>
+        </div>
+
+        <div class="section">
+            <h2>Props</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Prop</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>width</code></td>
+                        <td><code>number</code></td>
+                        <td><span class="required">Required</span></td>
+                        <td>Width of the animation</td>
+                    </tr>
+                    <tr>
+                        <td><code>height</code></td>
+                        <td><code>number</code></td>
+                        <td><span class="required">Required</span></td>
+                        <td>Height of the animation</td>
+                    </tr>
+                    <tr>
+                        <td><code>name</code></td>
+                        <td><code>string</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Name of built-in animation to play</td>
+                    </tr>
+                    <tr>
+                        <td><code>src</code></td>
+                        <td><code>string | AnimationObject | { uri: string }</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Custom animation source</td>
+                    </tr>
+                    <tr>
+                        <td><code>loop</code></td>
+                        <td><code>boolean</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Whether to loop the animation. Defaults to false</td>
+                    </tr>
+                    <tr>
+                        <td><code>autoPlay</code></td>
+                        <td><code>boolean</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Auto-play the animation. Defaults to true</td>
+                    </tr>
+                    <tr>
+                        <td><code>skeleton</code></td>
+                        <td><code>boolean</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Shows a skeleton placeholder</td>
+                    </tr>
+                    <tr>
+                        <td><code>style</code></td>
+                        <td><code>StyleProp&lt;ViewStyle&gt;</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Custom styles for the animation container</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin-top: 20px;">Built-in Animations</h3>
+            <ul style="margin-left: 20px; column-count: 3;">
+                <li><code>bye</code></li>
+                <li><code>caution</code></li>
+                <li><code>confetti</code></li>
+                <li><code>crown</code></li>
+                <li><code>error</code></li>
+                <li><code>gift</code></li>
+                <li><code>hat</code></li>
+                <li><code>password</code></li>
+                <li><code>sad</code></li>
+                <li><code>star</code></li>
+                <li><code>success</code></li>
+                <li><code>synced</code></li>
+                <li><code>thumbs-up</code></li>
+                <li><code>thumbs-down</code></li>
+                <li><code>unlock</code></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Usage Example</h2>
+            <pre><code><span class="keyword">import</span> { Lottie } <span class="keyword">from</span> <span class="string">'mybu-expo-ui'</span>;
+
+<span class="comment">// Built-in animation</span>
+&lt;<span class="type">Lottie</span>
+  name=<span class="string">"success"</span>
+  width={200}
+  height={200}
+/&gt;
+
+<span class="comment">// Looping animation</span>
+&lt;<span class="type">Lottie</span>
+  name=<span class="string">"confetti"</span>
+  width={300}
+  height={300}
+  loop={<span class="keyword">true</span>}
+/&gt;
+
+<span class="comment">// Custom animation file</span>
+&lt;<span class="type">Lottie</span>
+  src={<span class="keyword">require</span>(<span class="string">'./my-animation.json'</span>)}
+  width={200}
+  height={200}
+  autoPlay={<span class="keyword">true</span>}
+  loop={<span class="keyword">true</span>}
+/&gt;
+
+<span class="comment">// Skeleton loading</span>
+&lt;<span class="type">Lottie</span>
+  name=<span class="string">"star"</span>
+  width={100}
+  height={100}
+  skeleton={<span class="keyword">true</span>}
+/&gt;</code></pre>
+        </div>
+
+        <div class="section">
+            <h2>Features</h2>
+            <ul style="margin-left: 20px;">
+                <li><strong>Built-in Library:</strong> 15 pre-loaded animations ready to use</li>
+                <li><strong>Custom Animations:</strong> Load your own Lottie JSON files</li>
+                <li><strong>Auto-play:</strong> Animations start automatically by default</li>
+                <li><strong>Loop Control:</strong> Enable or disable animation looping</li>
+                <li><strong>Skeleton Loading:</strong> Pulsing placeholder for loading states</li>
+                <li><strong>Centered:</strong> Animations are centered in their container</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

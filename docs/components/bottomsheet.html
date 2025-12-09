@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BottomSheet - mybu-expo-ui</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px 20px; margin-bottom: 30px; }
+        header a { color: white; text-decoration: none; opacity: 0.8; }
+        header a:hover { opacity: 1; }
+        header h1 { margin-top: 10px; }
+        .section { background: white; border-radius: 8px; padding: 25px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .section h2 { color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 10px; margin-bottom: 20px; }
+        pre { background: #1e1e1e; color: #d4d4d4; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 15px 0; }
+        code { font-family: 'Fira Code', Consolas, monospace; }
+        .keyword { color: #569cd6; }
+        .string { color: #ce9178; }
+        .type { color: #4ec9b0; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { border: 1px solid #e0e0e0; padding: 12px; text-align: left; }
+        th { background: #f8f9fa; font-weight: 600; }
+        .required { color: #d32f2f; font-size: 0.8rem; }
+        .optional { color: #388e3c; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html">← Back to Documentation</a>
+            <h1>BottomSheet</h1>
+            <p>Bottom sheet modal component with animation</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Import</h2>
+            <pre><code><span class="keyword">import</span> { BottomSheet } <span class="keyword">from</span> <span class="string">'mybu-expo-ui'</span>;</code></pre>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>The BottomSheet component displays a modal that slides up from the bottom of the screen. It includes an overlay, close button, and support for primary/secondary action buttons or custom children content.</p>
+        </div>
+
+        <div class="section">
+            <h2>Props</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Prop</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>visible</code></td>
+                        <td><code>boolean</code></td>
+                        <td><span class="required">Required</span></td>
+                        <td>Controls whether the bottom sheet is visible</td>
+                    </tr>
+                    <tr>
+                        <td><code>onClose</code></td>
+                        <td><code>() => void</code></td>
+                        <td><span class="required">Required</span></td>
+                        <td>Callback function when the sheet is closed</td>
+                    </tr>
+                    <tr>
+                        <td><code>text</code></td>
+                        <td><code>string</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Text content to display in the sheet</td>
+                    </tr>
+                    <tr>
+                        <td><code>children</code></td>
+                        <td><code>React.ReactNode</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Custom content to render inside the sheet</td>
+                    </tr>
+                    <tr>
+                        <td><code>buttons</code></td>
+                        <td><code>object</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Primary and secondary button configuration</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin-top: 20px;">Button Object Structure</h3>
+            <pre><code>{
+  primary?: {
+    label?: <span class="type">string</span>,
+    onPress?: () => <span class="type">void</span>,
+    style?: <span class="type">StyleProp&lt;ViewStyle&gt;</span>,
+    labelStyle?: <span class="type">StyleProp&lt;TextStyle&gt;</span>
+  },
+  secondary?: {
+    label?: <span class="type">string</span>,
+    onPress?: () => <span class="type">void</span>,
+    style?: <span class="type">StyleProp&lt;ViewStyle&gt;</span>,
+    labelStyle?: <span class="type">StyleProp&lt;TextStyle&gt;</span>
+  }
+}</code></pre>
+        </div>
+
+        <div class="section">
+            <h2>Usage Example</h2>
+            <pre><code><span class="keyword">import</span> React, { useState } <span class="keyword">from</span> <span class="string">'react'</span>;
+<span class="keyword">import</span> { BottomSheet, Button } <span class="keyword">from</span> <span class="string">'mybu-expo-ui'</span>;
+
+<span class="keyword">const</span> MyComponent = () => {
+  <span class="keyword">const</span> [visible, setVisible] = useState(<span class="keyword">false</span>);
+
+  <span class="keyword">return</span> (
+    &lt;&gt;
+      &lt;<span class="type">Button</span>
+        label=<span class="string">"Open Sheet"</span>
+        onPress={() => setVisible(<span class="keyword">true</span>)}
+      /&gt;
+      &lt;<span class="type">BottomSheet</span>
+        visible={visible}
+        onClose={() => setVisible(<span class="keyword">false</span>)}
+        text=<span class="string">"Are you sure you want to continue?"</span>
+        buttons={{
+          primary: {
+            label: <span class="string">"Confirm"</span>,
+            onPress: () => {
+              <span class="comment">// Handle confirm</span>
+              setVisible(<span class="keyword">false</span>);
+            }
+          },
+          secondary: {
+            label: <span class="string">"Cancel"</span>,
+            onPress: () => setVisible(<span class="keyword">false</span>)
+          }
+        }}
+      /&gt;
+    &lt;/&gt;
+  );
+};</code></pre>
+        </div>
+
+        <div class="section">
+            <h2>Features</h2>
+            <ul style="margin-left: 20px;">
+                <li>Smooth slide-up animation (300ms duration)</li>
+                <li>Semi-transparent overlay backdrop</li>
+                <li>Close button in the top-right corner</li>
+                <li>Maximum height of 80% of the screen</li>
+                <li>Themed styling with customizable colors</li>
+                <li>Tap outside to close functionality</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

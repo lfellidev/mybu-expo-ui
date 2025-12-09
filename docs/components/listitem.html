@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ListItem - mybu-expo-ui</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px 20px; margin-bottom: 30px; }
+        header a { color: white; text-decoration: none; opacity: 0.8; }
+        header h1 { margin-top: 10px; }
+        .section { background: white; border-radius: 8px; padding: 25px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .section h2 { color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 10px; margin-bottom: 20px; }
+        pre { background: #1e1e1e; color: #d4d4d4; padding: 20px; border-radius: 6px; overflow-x: auto; margin: 15px 0; }
+        code { font-family: 'Fira Code', Consolas, monospace; }
+        .keyword { color: #569cd6; }
+        .string { color: #ce9178; }
+        .type { color: #4ec9b0; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { border: 1px solid #e0e0e0; padding: 12px; text-align: left; }
+        th { background: #f8f9fa; font-weight: 600; }
+        .required { color: #d32f2f; font-size: 0.8rem; }
+        .optional { color: #388e3c; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html">← Back to Documentation</a>
+            <h1>ListItem</h1>
+            <p>Touchable list item component using FlatList</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Import</h2>
+            <pre><code><span class="keyword">import</span> { ListItem } <span class="keyword">from</span> <span class="string">'mybu-expo-ui'</span>;</code></pre>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>The ListItem component renders a list of touchable items using React Native's FlatList. Each item can have a label, optional icon, and an onPress handler.</p>
+        </div>
+
+        <div class="section">
+            <h2>Props</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Prop</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>data</code></td>
+                        <td><code>ListItemData[]</code></td>
+                        <td><span class="required">Required</span></td>
+                        <td>Array of items to display</td>
+                    </tr>
+                    <tr>
+                        <td><code>style</code></td>
+                        <td><code>StyleProp&lt;ViewStyle&gt;</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Custom styles for each item container</td>
+                    </tr>
+                    <tr>
+                        <td><code>labelStyle</code></td>
+                        <td><code>StyleProp&lt;TextStyle&gt;</code></td>
+                        <td><span class="optional">Optional</span></td>
+                        <td>Custom styles for the label text</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin-top: 20px;">ListItemData Structure</h3>
+            <pre><code>{
+  label: <span class="type">string</span>,           <span class="comment">// Text to display</span>
+  onPress: () => <span class="type">void</span>,     <span class="comment">// Callback when item is pressed</span>
+  icon?: <span class="type">React.JSX.Element</span> <span class="comment">// Optional icon element</span>
+}</code></pre>
+        </div>
+
+        <div class="section">
+            <h2>Usage Example</h2>
+            <pre><code><span class="keyword">import</span> { ListItem, Icon } <span class="keyword">from</span> <span class="string">'mybu-expo-ui'</span>;
+
+<span class="keyword">const</span> MyComponent = () => {
+  <span class="keyword">const</span> menuItems = [
+    {
+      label: <span class="string">"Profile"</span>,
+      onPress: () => navigation.navigate(<span class="string">'Profile'</span>),
+      icon: &lt;<span class="type">Icon</span> name=<span class="string">"account"</span> size={24} color=<span class="string">"#333"</span> /&gt;
+    },
+    {
+      label: <span class="string">"Settings"</span>,
+      onPress: () => navigation.navigate(<span class="string">'Settings'</span>),
+      icon: &lt;<span class="type">Icon</span> name=<span class="string">"cog"</span> size={24} color=<span class="string">"#333"</span> /&gt;
+    },
+    {
+      label: <span class="string">"Help"</span>,
+      onPress: () => navigation.navigate(<span class="string">'Help'</span>),
+      icon: &lt;<span class="type">Icon</span> name=<span class="string">"help-circle"</span> size={24} color=<span class="string">"#333"</span> /&gt;
+    },
+    {
+      label: <span class="string">"Logout"</span>,
+      onPress: () => handleLogout()
+    }
+  ];
+
+  <span class="keyword">return</span> (
+    &lt;<span class="type">ListItem</span> data={menuItems} /&gt;
+  );
+};</code></pre>
+        </div>
+
+        <div class="section">
+            <h2>Features</h2>
+            <ul style="margin-left: 20px;">
+                <li><strong>FlatList Based:</strong> Efficient rendering for long lists</li>
+                <li><strong>Touchable Items:</strong> Each item is wrapped in TouchableOpacity</li>
+                <li><strong>Icon Support:</strong> Optional icon element on the left</li>
+                <li><strong>Theme Integration:</strong> Uses theme colors for background and borders</li>
+                <li><strong>Unique Keys:</strong> Auto-generates unique keys using generateID</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
